@@ -14,6 +14,7 @@ BR2_arm=y
 # BR2_m68k is not set
 # BR2_m68hc11 is not set
 # BR2_m68hc12 is not set
+# BR2_m9s12x is not set
 # BR2_mips is not set
 # BR2_mipsel is not set
 # BR2_nios2 is not set
@@ -25,7 +26,7 @@ BR2_arm=y
 # BR2_x86_64 is not set
 # BR2_generic_arm is not set
 # BR2_arm610 is not set
-BR2_arm7tdmi=y
+# BR2_arm7tdmi is not set
 # BR2_arm710 is not set
 # BR2_arm720t is not set
 # BR2_arm740t is not set
@@ -33,17 +34,17 @@ BR2_arm7tdmi=y
 # BR2_arm922t is not set
 # BR2_arm926t is not set
 # BR2_arm1136jf_s is not set
-# BR2_cortex_m3 is not set
+BR2_cortex_m3=y
 # BR2_sa110 is not set
 # BR2_sa1100 is not set
 # BR2_xscale is not set
 # BR2_iwmmxt is not set
-BR2_ARM_OABI=y
-# BR2_ARM_EABI is not set
+# BR2_ARM_OABI is not set
+BR2_ARM_EABI=y
 BR2_ARCH="arm"
-BR2_GCC_TARGET_TUNE="arm7tdmi"
-BR2_GCC_TARGET_ARCH="armv4t"
-BR2_GCC_TARGET_ABI="apcs-gnu"
+BR2_GCC_TARGET_TUNE="cortex-m3"
+BR2_GCC_TARGET_ARCH="armv7-m"
+BR2_GCC_TARGET_ABI="aapcs-linux"
 BR2_ENDIAN="LITTLE"
 
 #
@@ -60,7 +61,7 @@ BR2_NUTTX_DIR="$(TOPDIR)/../../nuttx"
 BR2_TOPDIR_PREFIX=""
 BR2_TOPDIR_SUFFIX=""
 BR2_GNU_BUILD_SUFFIX="pc-elf"
-BR2_GNU_TARGET_SUFFIX="nuttx-elf"
+BR2_GNU_TARGET_SUFFIX="nuttx-eabi"
 # BR2_PREFER_IMA is not set
 
 #
@@ -71,20 +72,26 @@ BR2_GNU_TARGET_SUFFIX="nuttx-elf"
 # Binutils Options
 #
 # BR2_BINUTILS_VERSION_2_17 is not set
-BR2_BINUTILS_VERSION_2_19=y
+# BR2_BINUTILS_VERSION_2_18 is not set
+# BR2_BINUTILS_VERSION_2_19 is not set
 # BR2_BINUTILS_VERSION_2_19_1 is not set
-BR2_BINUTILS_VERSION="2.19"
+# BR2_BINUTILS_VERSION_2_21_1 is not set
+BR2_BINUTILS_VERSION_2_22=y
+BR2_BINUTILS_VERSION="2.22"
 BR2_EXTRA_BINUTILS_CONFIG_OPTIONS=""
 
 #
 # GCC Options
 #
 BR2_PACKAGE_GCC=y
+# BR2_GCC_VERSION_3_3_6 is not set
 # BR2_GCC_VERSION_3_4_6 is not set
-BR2_GCC_VERSION_4_2_4=y
+# BR2_GCC_VERSION_4_2_4 is not set
 # BR2_GCC_VERSION_4_3_3 is not set
+# BR2_GCC_VERSION_4_5_2 is not set
+BR2_GCC_VERSION_4_6_3=y
 BR2_GCC_SUPPORTS_SYSROOT=y
-BR2_GCC_VERSION="4.2.4"
+BR2_GCC_VERSION="4.6.3"
 # BR2_GCC_USE_SJLJ_EXCEPTIONS is not set
 BR2_EXTRA_GCC_CONFIG_OPTIONS=""
 BR2_INSTALL_LIBSTDCPP=y
@@ -102,7 +109,8 @@ BR2_INSTALL_LIBSTDCPP=y
 #
 # NuttX Binary Support
 #
-# BR2_PACKAGE_NXFLAT is not set
+BR2_PACKAGE_NXFLAT=y
+BR2_PACKAGE_GENROMFS=y
 
 #
 # Common Toolchain Options
