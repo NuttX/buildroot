@@ -192,11 +192,11 @@ GENERAL BUILD STEPS
      unpack the buildroot package
      rename the directory to buildroot
 
-   b. Using SVN
+   b. Using GIT
 
-     Check out the misc/buildroot module. SVN checkout instructions:
+     Clone out the misc/buildroot module. GIT clone instructions:
 
-        svn co https://nuttx.svn.sourceforge.net/svnroot/nuttx nuttx/trunk/misc/buildroot
+        git clone https://patacongo@bitbucket.org/patacongo/nuttx.git nuttx-git
 
      Move the buildroot Source Tree and create the archive directory
 
@@ -204,7 +204,7 @@ GENERAL BUILD STEPS
 
    Make the archive directory:
 
-     mkdir archive
+        mkdir archive
 
    The <nuttx-dir>/../buildroot is where the toolchain is built;
    The <nuttx-dir>/../archive directory is where toolchain sources will be downloaded.
