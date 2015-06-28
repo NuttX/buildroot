@@ -13,6 +13,9 @@ CONTENTS
 AVAILABLE CONFIGURATIONS
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
+Configurions are retained in the configs/ directory.  The following
+configurations are currently available:
+
 arm-defconfig
   Builds an OABI ARM toolchain using gcc 3.4.6
 
@@ -194,13 +197,9 @@ GENERAL BUILD STEPS
 
    b. Using GIT
 
-     Clone out the misc/buildroot module. GIT clone instructions:
+     Clone the NuttX buildroot module. GIT clone instructions:
 
-        git clone https://patacongo@bitbucket.org/patacongo/nuttx.git nuttx-git
-
-     Move the buildroot Source Tree and create the archive directory
-
-        mv misc/buildroot .
+        git clone hhttps://patacongo@bitbucket.org/nuttx/buildroot.git buildroot
 
    Make the archive directory:
 
@@ -387,4 +386,3 @@ Building GDB Under Cygwin
    directory if it is needed:
 
    cp configs/gdb-1_8-cygwin-1_7.patch toolchain/gdb/6.8/.
-
