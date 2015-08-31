@@ -199,7 +199,7 @@ GENERAL BUILD STEPS
 
      Clone the NuttX buildroot module. GIT clone instructions:
 
-        git clone hhttps://patacongo@bitbucket.org/nuttx/buildroot.git buildroot
+        git clone https://patacongo@bitbucket.org/nuttx/buildroot.git buildroot
 
    Make the archive directory:
 
