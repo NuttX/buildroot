@@ -308,7 +308,7 @@ Cygwin GCC BUILD NOTES
    lots of problems.  Here is how I worked around that:
 
    - I created a /home/buildroot directory and copied buildroot to that location
-     (/home/build/buildroot/buildroot)
+     (/home/buildroot/buildroot)
    - I have the archives directory at /home/buildroot/archives
    - And a symbolic link to the nuttx build directory at /home/buildroot/nuttx
 
