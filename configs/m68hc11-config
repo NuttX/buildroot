@@ -24,7 +24,6 @@ BR2_m68hc11=y
 # BR2_sparc is not set
 # BR2_x86_64 is not set
 BR2_ARCH="m68hc11"
-BR2_ENDIAN="BIG"
 
 #
 # Build options

@@ -49,7 +49,6 @@ BR2_generic_arm=y
 BR2_ARM_EABI=y
 BR2_ARCH="arm"
 BR2_GCC_TARGET_ABI="aapcs-linux"
-BR2_ENDIAN="LITTLE"
 
 #
 # Build options

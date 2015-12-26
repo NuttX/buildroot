@@ -31,7 +31,6 @@ BR2_sh1=y
 # BR2_sh4 is not set
 # BR2_sh4eb is not set
 BR2_ARCH="sh"
-BR2_ENDIAN="BIG"
 
 #
 # Build options

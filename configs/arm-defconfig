@@ -42,7 +42,6 @@ BR2_ARM_OABI=y
 # BR2_ARM_EABI is not set
 BR2_ARCH="arm"
 BR2_GCC_TARGET_ABI="apcs-gnu"
-BR2_ENDIAN="LITTLE"
 
 #
 # Build options
