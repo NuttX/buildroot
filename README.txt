@@ -108,6 +108,10 @@ cortexa8-eabi-defconfig-4.8.2
   This configuration builds gcc, g++ and the NXFLAT toolchain.  This
   configuration builds but has not been used.
 
+cortexr4-armeb-eabi-defconfig-4.8.2
+  Builds an big-ending EABI ARM toolchain for the Cortex-R4 using gcc
+  4.8.2.  This configuration builds gcc and g++, but not GDB or NxFLAT.
+
 bfin-defconfig-4.2.4
   Builds an Blackfin toolchain using gcc 4.2.4
 

@@ -19,15 +19,15 @@ choice
 	  Select the version of binutils you wish to use.
 
 	config BR2_BINUTILS_VERSION_2_17
-		depends !BR2_nios2 && !BR2_cortex_a5 && !BR2_cortex_a8 && !BR2_cortex_m3 && !BR2_cortex_m0 && !BR2_m9s12x
+		depends !BR2_nios2 && !BR2_cortex_a5 && !BR2_cortex_a8 && !BR2_cortex_r4 && !BR2_cortex_r4f && !BR2_cortex_m3 && !BR2_cortex_m0 && !BR2_m9s12x
 		bool "binutils 2.17"
 
 	config BR2_BINUTILS_VERSION_2_18
-		depends !BR2_avr32 && !BR2_nios2 && !BR2_cortex_a5 && !BR2_cortex_a8 && !BR2_cortex_m3 && !BR2_cortex_m0
+		depends !BR2_avr32 && !BR2_nios2 && !BR2_cortex_a5 && !BR2_cortex_a8 && !BR2_cortex_r4 && !BR2_cortex_r4f && !BR2_cortex_m3 && !BR2_cortex_m0
 		bool "binutils 2.18"
 
 	config BR2_BINUTILS_VERSION_2_19
-		depends !BR2_avr32 && !BR2_nios2 && !BR2_cortex_a5 && !BR2_cortex_a8 && !BR2_cortex_m3 && !BR2_cortex_m0 &&!BR2_m9s12x
+		depends !BR2_avr32 && !BR2_nios2 && !BR2_cortex_a5 && !BR2_cortex_a8 && !BR2_cortex_r4 && !BR2_cortex_r4f && !BR2_cortex_m3 && !BR2_cortex_m0 &&!BR2_m9s12x
 		bool "binutils 2.19"
 
 	config BR2_BINUTILS_VERSION_2_19_1

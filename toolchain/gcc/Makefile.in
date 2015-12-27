@@ -33,6 +33,8 @@ TARGET_SOFT_FLOAT:=-mfloat-abi=softfp
 else # no fp at all
 ifeq ($(BR2_arm),y) # only set float-abi for arm
 TARGET_SOFT_FLOAT:=-mfloat-abi=soft
+else ifeq ($(BR2_armeb),y) # only set float-abi for arm
+TARGET_SOFT_FLOAT:=-mfloat-abi=soft
 else
 TARGET_SOFT_FLOAT:=-msoft-float
 endif
@@ -54,6 +56,13 @@ endif
 
 ifeq ($(strip $(BR2_GCC_CORTEX_M4F)),y)
 TARGET_SOFT_FLOAT:=-mfpu=fpv4-sp-d16 -mfloat-abi=hard -mhard-float
+SOFT_FLOAT_CONFIG_OPTION:=--with-float=hard
+ARCH_FPU_SUFFIX:=_hf
+endif
+
+
+ifeq ($(strip $(BR2_GCC_CORTEX_R4F)),y)
+TARGET_SOFT_FLOAT:=-mfpu=fpv4-d16 -mfloat-abi=hard -mhard-float
 SOFT_FLOAT_CONFIG_OPTION:=--with-float=hard
 ARCH_FPU_SUFFIX:=_hf
 endif
