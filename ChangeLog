@@ -155,4 +155,5 @@ buildroot-1.15 2014-xx-xx <gnutt@nuttx.org>
 
 	* Minor changes for clean build under OpenSUSE 13.1.  Add kconfig-frontends
 	  to two configurations. (2014-8-14).
-
+	* Added suppport for big-endian, armeb, targets.  Added support for
+	  Cortex-R4 and Cortex-R4F targets (2015-12-16).
