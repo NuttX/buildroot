@@ -151,9 +151,27 @@ buildroot-1.14 2014-03-15 <gnutt@nuttx.org>
 	  bfd.h wants us to include config.h first (2014-2.27).
 	* Added support for the kconfig-frontends-3.12.0.0 tools.
 
-buildroot-1.15 2014-xx-xx <gnutt@nuttx.org>
+buildroot-1.15 2016-07-31 <gnutt@nuttx.org>
 
 	* Minor changes for clean build under OpenSUSE 13.1.  Add kconfig-frontends
 	  to two configurations. (2014-8-14).
 	* Added suppport for big-endian, armeb, targets.  Added support for
 	  Cortex-R4 and Cortex-R4F targets (2015-12-16).
+	* From David Alessio (2016-07-31):
+	  — bump gcc 4.7.3 —> gcc 4.7.4
+	  — bump gcc 4.8.2 —> gcc 4.8.5
+	  — update configs/* that are affected by the above
+	  — added newest binutils: binutils 2.26.1
+	  — added newer gcc versions: gcc-4.9.3, gcc-5.4.0, gcc-6.1.0
+	  — added newer gdb version: gdb-7.9.1
+	  — patched gdb.mk to: download tar.gz rather than tar.bz2. Since the GNU
+	    repo switched from bz2 to xz for GDB, tar.gz is the only compressed
+	    tarball common to all supported versions of gdb.
+	  — added GDB option to support TUI interface
+	  Notes:
+	  - I tested all the above versions of gcc, but only configured for
+	    Cortex M4F, hard-float with GDB 7.9.1. binutils 2.26.1 used in all
+	    cases. No issues.
+	  - gcc 4.8 and above need gdb 7.9 (compatible elf/dwarf-4 format)
+
+buildroot-1.16 2016-xx-xx <gnutt@nuttx.org>

@@ -90,8 +90,8 @@ cortexm3-eabi-defconfig-4.6.3
   Builds an EABI ARM toolchain for the Cortex-M3 using gcc 4.6.3.
   This configuration builds gcc, g++ and the NXFLAT toolchain.
 
-cortexm3-eabi-defconfig-4.8.2
-  Builds an EABI ARM toolchain for the Cortex-M3 using gcc 4.8.2.
+cortexm3-eabi-defconfig-4.8.5
+  Builds an EABI ARM toolchain for the Cortex-M3 using gcc 4.8.5.
   This configuration builds gcc, g++ and the NXFLAT toolchain.
 
 cortexm3-defconfig-nxflat
@@ -103,14 +103,14 @@ cortexa8-eabi-defconfig-4.6.3
   This configuration builds gcc, g++ and the NXFLAT toolchain.  This
   configuration builds but has not been used.
 
-cortexa8-eabi-defconfig-4.8.2
-  Builds an EABI ARM toolchain for the Cortex-A5/8 using gcc 4.8.2.
+cortexa8-eabi-defconfig-4.8.5
+  Builds an EABI ARM toolchain for the Cortex-A5/8 using gcc 4.8.5.
   This configuration builds gcc, g++ and the NXFLAT toolchain.  This
   configuration builds but has not been used.
 
-cortexr4-armeb-eabi-defconfig-4.8.2
+cortexr4-armeb-eabi-defconfig-4.8.5
   Builds an big-ending EABI ARM toolchain for the Cortex-R4 using gcc
-  4.8.2.  This configuration builds gcc and g++, but not GDB or NxFLAT.
+  4.8.5.  This configuration builds gcc and g++, but not GDB or NxFLAT.
 
 bfin-defconfig-4.2.4
   Builds an Blackfin toolchain using gcc 4.2.4
