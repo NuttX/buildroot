@@ -3,8 +3,8 @@
 #
 BR2_HAVE_DOT_CONFIG=y
 # BR2_alpha is not set
-# BR2_arm is not set
-BR2_armeb=y
+BR2_arm=y
+# BR2_armeb is not set
 # BR2_avr is not set
 # BR2_avr32 is not set
 # BR2_bfin is not set
@@ -36,22 +36,22 @@ BR2_armeb=y
 # BR2_arm1136jf_s is not set
 # BR2_cortex_a5 is not set
 # BR2_cortex_a8 is not set
-BR2_cortex_r4=y
+# BR2_cortex_r4 is not set
 # BR2_cortex_r4f is not set
 # BR2_cortex_m3 is not set
-# BR2_cortex_m4f is not set
+BR2_cortex_m4f=y
 # BR2_cortex_m0 is not set
 # BR2_sa110 is not set
 # BR2_sa1100 is not set
 # BR2_xscale is not set
 # BR2_iwmmxt is not set
 BR2_GCC_CORTEX=y
-# BR2_GCC_CORTEX_M4F is not set
+BR2_GCC_CORTEX_M4F=y
 # BR2_ARM_OABI is not set
 BR2_ARM_EABI=y
-BR2_ARCH="armeb"
-BR2_GCC_TARGET_TUNE="cortex-r4"
-BR2_GCC_TARGET_ARCH="armv7-r"
+BR2_ARCH="arm"
+BR2_GCC_TARGET_TUNE="cortex-m4"
+BR2_GCC_TARGET_ARCH="armv7-m"
 BR2_GCC_TARGET_ABI="aapcs-linux"
 
 #
@@ -62,14 +62,14 @@ BR2_SVN="svn co"
 BR2_ZCAT="zcat"
 BR2_BZCAT="bzcat"
 BR2_TAR_OPTIONS=""
-BR2_DL_DIR="$(BASE_DIR)/../archives"
+BR2_DL_DIR="$(BASE_DIR)/dl"
 BR2_STAGING_DIR="$(BUILD_DIR)/staging_dir"
 BR2_NUTTX_DIR="$(TOPDIR)/../nuttx"
 BR2_TOPDIR_PREFIX=""
 BR2_TOPDIR_SUFFIX=""
 BR2_GNU_BUILD_SUFFIX="pc-elf"
 BR2_GNU_TARGET_SUFFIX="nuttx-eabi"
-# BR2_PREFER_IMA is not set
+BR2_PREFER_IMA=y
 
 #
 # Toolchain Options
@@ -85,8 +85,9 @@ BR2_PACKAGE_BINUTILS=y
 # BR2_BINUTILS_VERSION_2_19_1 is not set
 # BR2_BINUTILS_VERSION_2_21_1 is not set
 # BR2_BINUTILS_VERSION_2_22 is not set
-BR2_BINUTILS_VERSION_2_24=y
-BR2_BINUTILS_VERSION="2.24"
+# BR2_BINUTILS_VERSION_2_24 is not set
+BR2_BINUTILS_VERSION_2_26_1=y
+BR2_BINUTILS_VERSION="2.26.1"
 BR2_EXTRA_BINUTILS_CONFIG_OPTIONS=""
 
 #
@@ -99,10 +100,13 @@ BR2_PACKAGE_GCC=y
 # BR2_GCC_VERSION_4_3_3 is not set
 # BR2_GCC_VERSION_4_5_2 is not set
 # BR2_GCC_VERSION_4_6_3 is not set
-# BR2_GCC_VERSION_4_7_3 is not set
-BR2_GCC_VERSION_4_8_2=y
+BR2_GCC_VERSION_4_7_4=y
+# BR2_GCC_VERSION_4_8_5 is not set
+# BR2_GCC_VERSION_4_9_3 is not set
+# BR2_GCC_VERSION_5_4_0 is not set
+# BR2_GCC_VERSION_6_1_0 is not set
 BR2_GCC_SUPPORTS_SYSROOT=y
-BR2_GCC_VERSION="4.8.2"
+BR2_GCC_VERSION="4.7.4"
 # BR2_GCC_USE_SJLJ_EXCEPTIONS is not set
 BR2_EXTRA_GCC_CONFIG_OPTIONS=""
 BR2_INSTALL_LIBSTDCPP=y
@@ -115,11 +119,14 @@ BR2_INSTALL_LIBSTDCPP=y
 #
 # BR2_PACKAGE_GDB is not set
 # BR2_PACKAGE_GDB_SERVER is not set
-# BR2_PACKAGE_GDB_HOST is not set
+BR2_PACKAGE_GDB_HOST=y
 # BR2_GDB_VERSION_6_3 is not set
 # BR2_GDB_VERSION_6_4 is not set
 # BR2_GDB_VERSION_6_8 is not set
 # BR2_GDB_VERSION_7_4_1 is not set
+BR2_GDB_VERSION_7_9_1=y
+BR2_PACKAGE_GDB_TUI=y
+BR2_GDB_VERSION="7.9.1"
 
 #
 # NuttX Binary Support

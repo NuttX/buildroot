@@ -44,7 +44,26 @@ choice
 		bool "gdb 7.4.1"
 		depends on !BR2_bfin
 
+	config BR2_GDB_VERSION_7_9_1
+		bool "gdb 7.9.1"
+		depends on !BR2_bfin
+
 endchoice
+
+config BR2_PACKAGE_GDB_TUI
+    bool "TUI support"
+    select BR2_PACKAGE_NCURSES
+	default n
+    depends on BR2_PACKAGE_GDB_HOST
+    help
+      This option enables terminal user interface (TUI) for gdb
+
+      "The GDB Text User Interface (TUI) is a terminal interface
+      which uses the curses library to show the source file, the
+      assembly output, the program registers and GDB commands in
+      separate text windows."
+
+      https://sourceware.org/gdb/current/onlinedocs/gdb/TUI.html
 
 config BR2_GDB_VERSION
 	string
@@ -52,3 +71,5 @@ config BR2_GDB_VERSION
 	default "6.4"      if BR2_GDB_VERSION_6_4
 	default "6.8"      if BR2_GDB_VERSION_6_8
 	default "7.4.1"    if BR2_GDB_VERSION_7_4_1
+	default "7.9.1"    if BR2_GDB_VERSION_7_9_1
+

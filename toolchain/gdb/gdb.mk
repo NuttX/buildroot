@@ -13,8 +13,8 @@ GDB_CAT:=$(BZCAT)
 GDB_DIR:=$(TOOL_BUILD_DIR)/gdb-$(GDB_VERSION)
 else
 GDB_SITE:=http://ftp.gnu.org/gnu/gdb
-GDB_SOURCE:=gdb-$(GDB_VERSION).tar.bz2
-GDB_CAT:=$(BZCAT)
+GDB_SOURCE:=gdb-$(GDB_VERSION).tar.gz
+GDB_CAT:=$(ZCAT)
 
 GDB_DIR:=$(TOOL_BUILD_DIR)/gdb-$(GDB_VERSION)
 
@@ -44,6 +44,13 @@ endif
 
 gdb-dirclean:
 	rm -rf $(GDB_DIR)
+
+
+ifeq ($(BR2_PACKAGE_GDB_TUI),y)
+GDB_CONF_HOST_TUI += --enable-tui
+else
+GDB_CONF_HOST_TUI += --disable-tui
+endif
 
 ######################################################################
 #
@@ -179,7 +186,7 @@ $(GDB_HOST_DIR)/.configured: $(GDB_DIR)/.unpacked
 		--target=$(REAL_GNU_TARGET_NAME) \
 		$(DISABLE_NLS) \
 		--without-uiout $(DISABLE_GDBMI) \
-		--disable-tui --disable-gdbtk --without-x \
+		$(GDB_CONF_HOST_TUI) --disable-gdbtk --without-x \
 		--without-included-gettext \
 		--enable-threads \
 	);
@@ -224,3 +231,5 @@ endif
 ifeq ($(strip $(BR2_PACKAGE_GDB_HOST)),y)
 TARGETS+=gdbhost
 endif
+
+
