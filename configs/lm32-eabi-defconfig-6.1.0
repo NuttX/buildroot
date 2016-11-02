@@ -92,14 +92,15 @@ BR2_INSTALL_LIBSTDCPP=y
 #
 # Gdb Options
 #
-BR2_PACKAGE_GDB=y
+# BR2_PACKAGE_GDB is not set
 # BR2_PACKAGE_GDB_SERVER is not set
-# BR2_PACKAGE_GDB_HOST is not set
+BR2_PACKAGE_GDB_HOST=y
 # BR2_GDB_VERSION_6_3 is not set
 # BR2_GDB_VERSION_6_4 is not set
 # BR2_GDB_VERSION_6_8 is not set
 # BR2_GDB_VERSION_7_4_1 is not set
 BR2_GDB_VERSION_7_9_1=y
+# BR2_PACKAGE_GDB_TUI is not set
 BR2_GDB_VERSION="7.9.1"
 
 #
