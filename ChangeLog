@@ -175,3 +175,5 @@ buildroot-1.15 2016-07-31 <gnutt@nuttx.org>
 	  - gcc 4.8 and above need gdb 7.9 (compatible elf/dwarf-4 format)
 
 buildroot-1.16 2016-xx-xx <gnutt@nuttx.org>
+	* Add support for LM3S toolchain.
+
