@@ -1,0 +1,10 @@
+--- a/config.sub	2016-11-01 19:57:50.942255483 -0600
++++ b/config.sub	2016-11-01 19:58:28.433254430 -0600
+@@ -249,6 +249,7 @@
+ 	| h8300 | h8500 | hppa | hppa1.[01] | hppa2.0 | hppa2.0[nw] | hppa64 \
+ 	| i370 | i860 | i960 | ia64 \
+ 	| ip2k | iq2000 \
++	| lm32 \
+ 	| m32r | m32rle | m68000 | m68k | m88k | maxq | mb | microblaze | mcore \
+ 	| mips | mipsbe | mipseb | mipsel | mipsle \
+ 	| mips16 \
