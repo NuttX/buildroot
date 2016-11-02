@@ -28,8 +28,8 @@ config BR2_cris
 	bool "cris"
 config BR2_i386
 	bool "i386"
-config BR2_lm3s
-	bool "lm3s"
+config BR2_lm32
+	bool "lm32"
 config BR2_m32c
 	bool "r8c/m16c/m32c"
 config BR2_m68k
@@ -222,7 +222,7 @@ config BR2_ARCH
 	default "m9s12x"	if BR2_m9s12x
 	default "mips"		if BR2_mips
 	default "mipsel"	if BR2_mipsel
-	default "lm3s"		if BR2_lm3s
+	default "lm32"		if BR2_lm32
 	default "nios2"		if BR2_nios2
 	default "powerpc"	if BR2_powerpc
 	default "sh"		if BR2_sh1

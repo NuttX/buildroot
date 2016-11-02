@@ -10,7 +10,7 @@ BR2_HAVE_DOT_CONFIG=y
 # BR2_bfin is not set
 # BR2_cris is not set
 # BR2_i386 is not set
-BR2_lm3s=y
+BR2_lm32=y
 # BR2_m32c is not set
 # BR2_m68k is not set
 # BR2_m68hc11 is not set
@@ -27,7 +27,7 @@ BR2_lm3s=y
 # BR2_x86_64 is not set
 # BR2_GCC_CORTEX is not set
 # BR2_GCC_CORTEX_M4F is not set
-BR2_ARCH="lm3s"
+BR2_ARCH="lm32"
 
 #
 # Build options
