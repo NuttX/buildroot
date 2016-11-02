@@ -1,24 +1,33 @@
 #!/bin/sh
 #
-# Copyright 2004, 2005 Free Software Foundation, Inc.
+# Copyright 2004, 2005, 2009, 2012, 2015 Free Software Foundation,
+# Inc.
 # Contributed by Ben Elliston <bje@gnu.org>.
 #
 # This test reads 5-tuples from config-guess.data: the components of
 # the simulated uname(1) output and the expected GNU system triplet.
 
 verbose=false
-export PATH=`pwd`:$PATH
-IFS="	" # tab
+PATH=`pwd`:$PATH
 
-function run_config_guess ()
+run_config_guess ()
 {
     rc=0
-    while read machine release system version triplet ; do
+    while read machine release system version processor triplet ; do
 	sed \
 	    -e "s,@MACHINE@,$machine," \
 	    -e "s,@RELEASE@,$release," \
 	    -e "s,@SYSTEM@,$system," \
-	    -e "s,@VERSION@,$version," < uname.in > uname
+	    -e "s,@VERSION@,$version," \
+	    -e "s,@PROCESSOR@,$processor," > uname << EOF
+#!/bin/sh
+[ \$# -ne 1 ] && exec sh \$0 -s
+[ \$1 = -m ] && echo "@MACHINE@" && exit 0
+[ \$1 = -r ] && echo "@RELEASE@" && exit 0
+[ \$1 = -s ] && echo "@SYSTEM@" && exit 0
+[ \$1 = -v ] && echo "@VERSION@" && exit 0
+[ \$1 = -p ] && echo "@PROCESSOR@" && exit 0
+EOF
 	chmod +x uname
 	output=`sh ../config.guess 2>/dev/null`
 	if test $? != 0 ; then
@@ -36,12 +45,12 @@ function run_config_guess ()
     return $rc
 }
 
-sed 's/		*/	/g' < config-guess.data | run_config_guess
-rc=$?
-if test $rc -eq 0 ; then
-  $verbose || echo "PASS: config.guess checks"
+if run_config_guess < config-guess.data ; then
+  numtests=$(wc -l config-guess.data | cut -d' ' -f1)
+  $verbose || echo "PASS: config.guess checks ($numtests tests)"
 else
-  test $rc -eq 1 && echo "Unexpected failures."
+  echo "Unexpected failures."
+  exit 1
 fi
 
-exit $rc
+exit 0

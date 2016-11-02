@@ -1,23 +1,91 @@
-crisv32	2.6.6			Linux		ignored	crisv32-axis-linux-gnu
-frv	2.4.24			Linux		ignored	frv-unknown-linux-gnu
-3	2.3.3			XENIX		SysV	i386-pc-xenix
-2064	ignored			z/VM		ignored	s390-ibm-zvmoe
-amd64	1.5.12(0.116/4/2)	CYGWIN_NT-5.2	ignored	x86_64-unknown-cygwin
-crayx1	2.5.20			UNICOS/mp	ignored	craynv-cray-unicosmp2.5.X
-NSE-N	1.0			NONSTOP_KERNEL	ignored	nse-tandem-nsk1.0
-i386	ignored			VOS		ignored	i386-stratus-vos
-arm	ignored			RISCOS		ignored	arm-unknown-riscos
-arm	ignored			riscos		ignored	arm-unknown-riscos
-i586	5.0.0			skyos		ignored	i586-pc-skyos5.0.0
-i786-pc	ignored			windows32	ignored	i786-pc-mingw32
-or32	ignored			Linux		ignored	or32-unknown-linux-gnu
-x86_64	1.5.18(0.132/4/2)	CYGWIN_NT-5.2	ignored	x86_64-unknown-cygwin
-x86	5.2			Interix		ignored	i586-pc-interix5.2
-ppc64	2.6.9-22		Linux		ignored	powerpc64-unknown-linux-gnu
-vax	2.6.15			Linux		ignored	vax-dec-linux-gnu
-i586	ignored			rdos		ignored	i586-pc-rdos
-pc98	7.0			FreeBSD		ignored	i386-unknown-freebsd7.0
-i586	1.0			SolidBSD	ignored	i586-unknown-solidbsd1.0
-i686	5.4-1-686		GNU/kFreeBSD	ignored	i686-unknown-kfreebsd5.4-gnu
-i686	1.0.10(0.46/3/2)	MSYS_NT-5.1	ignored	i686-pc-mingw32
-EM64T	5.2			Interix		ignored	x86_64-unknown-interix5.2
+2064	ignored	z/VM	ignored	ignored	s390-ibm-zvmoe
+3	2.3.3	XENIX	SysV	ignored	i386-pc-xenix
+8664	1.0	Windows_NT	ignored	ignored	x86_64-pc-mks
+aarch64_be	ignored	Linux	ignored	ignored	aarch64_be-unknown-linux-gnu
+aarch64	ignored	Linux	ignored	ignored	aarch64-unknown-linux-gnu
+amd64	1.5.12(0.116/4/2)	CYGWIN_NT-5.2	ignored	ignored	x86_64-unknown-cygwin
+amd64   6.1.4   NetBSD  ignored x86_64  x86_64-unknown-netbsd6.1
+amd64   6.1.5_PATCH NetBSD  ignored x86_64  x86_64-unknown-netbsd6.1
+amd64   7.0_BETA NetBSD ignored x86_64  x86_64-unknown-netbsd7.0
+amd64   7.0 NetBSD	ignored x86_64  x86_64-unknown-netbsd7.0
+amd64   7.0_RC1 NetBSD  ignored x86_64  x86_64-unknown-netbsd7.0
+amd64	7.2.1	Isilon\ OneFS	ignored	ignored	x86_64-unknown-onefs
+arceb	ignored	Linux	ignored	ignored	arceb-unknown-linux-gnu
+arc	ignored	Linux	ignored	ignored	arc-unknown-linux-gnu
+arm	ignored	riscos	ignored	ignored	arm-unknown-riscos
+arm	ignored	RISCOS	ignored	ignored	arm-unknown-riscos
+armv4l	ignored	riscos	ignored	ignored	arm-unknown-riscos
+authenticamd	6.0	Interix	ignored	ignored	x86_64-unknown-interix6.0
+avr32	2.6.15	Linux	ignored	ignored	avr32-unknown-linux-gnu
+BePC	1.0	Haiku	ignored	ignored	i586-pc-haiku
+crayx1	2.5.20	UNICOS/mp	ignored	ignored	craynv-cray-unicosmp2.5.X
+cris	2.6.6	Linux	ignored	ignored	cris-axis-linux-gnu
+crisv32	2.6.6	Linux	ignored	ignored	crisv32-axis-linux-gnu
+e2k	2.6.32	Linux	ignored	ignored	e2k-unknown-linux-gnu
+EM64T	5.2	Interix	ignored	ignored	x86_64-unknown-interix5.2
+evbarm	7.0	NetBSD	ignored	arm	arm-unknown-netbsdelf7.0
+evbarm	7.0	NetBSD	ignored	armeb	armeb-unknown-netbsdelf7.0
+evbarm	7.0	NetBSD	ignored	earmv6	armv6-unknown-netbsdelf7.0-eabi
+evbarm	7.0	NetBSD	ignored	earmv6eb	armv6eb-unknown-netbsdelf7.0-eabi
+evbarm	7.0	NetBSD	ignored	earmv6hf	armv6-unknown-netbsdelf7.0-eabihf
+evbarm	7.0	NetBSD	ignored	earmv6hfeb	armv6eb-unknown-netbsdelf7.0-eabihf
+evbarm	7.0	NetBSD	ignored	earmv7	armv7-unknown-netbsdelf7.0-eabi
+evbarm	7.0	NetBSD	ignored	earmv7eb	armv7eb-unknown-netbsdelf7.0-eabi
+evbarm	7.0	NetBSD	ignored	earmv7hf	armv7-unknown-netbsdelf7.0-eabihf
+evbarm	7.0	NetBSD	ignored	earmv7hfeb	armv7eb-unknown-netbsdelf7.0-eabihf
+frv	2.4.24	Linux	ignored	ignored	frv-unknown-linux-gnu
+genuineintel	6.0	Interix	ignored	ignored	x86_64-unknown-interix6.0
+hexagon	1.0	Linux	ignored	ignored	hexagon-unknown-linux-gnu
+i386	1.0	MINGW	ignored	ignored	i386-pc-mingw32
+i386	12.1	AROS	ignored	ignored	i386-pc-aros
+i386	4.2	LynxOS	ignored	ignored	i386-unknown-lynxos4.2
+i386	ignored	VOS	ignored	ignored	i386-stratus-vos
+i586	1.0	SolidBSD	ignored	ignored	i586-unknown-solidbsd1.0
+i586	5.0.0	skyos	ignored	ignored	i586-pc-skyos5.0.0
+i586	ignored	rdos	ignored	ignored	i586-pc-rdos
+i686	1.0.17(0.48/3/2)	MSYS_NT-6.0	ignored	ignored	i686-pc-msys
+i686	5.11-686	GNU/kOpenSolaris	ignored	ignored	i686-unknown-kopensolaris5.11-gnu
+i686	5.4-1-686	GNU/kFreeBSD	ignored	ignored	i686-unknown-kfreebsd5.4-gnu
+i786-pc	ignored	windows32	ignored	ignored	i786-pc-mingw32
+i86pc	5.0	AuroraUX	ignored	ignored	i386-pc-auroraux5.0
+i86xen	5.0	AuroraUX	ignored	ignored	i386-pc-auroraux5.0
+IA64	6.0	Interix	ignored	ignored	ia64-unknown-interix6.0
+k1om	2.6.38	Linux	ignored	ignored	k1om-unknown-linux-gnu
+macppc	1.0	MirBSD	ignored	ignored	powerpc-unknown-mirbsd1.0
+mips64el 2.6.2	Linux	ignored	ignored	mips64el-unknown-linux-gnu
+NEO-1	1.0	NONSTOP_KERNEL	ignored	ignored	neo-tandem-nsk1.0
+NSE-1	1.0	NONSTOP_KERNEL	ignored	ignored	nse-tandem-nsk1.0
+NSE-N	1.0	NONSTOP_KERNEL	ignored	ignored	nse-tandem-nsk1.0
+NSE-NN	1.0	NONSTOP_KERNEL	ignored	ignored	nse-tandem-nsk1.0
+openrisc	ignored	Linux	ignored	ignored	or1k-unknown-linux-gnu
+or1k	ignored	Linux	ignored	ignored	or1k-unknown-linux-gnu
+or1knd	ignored	Linux	ignored	ignored	or1knd-unknown-linux-gnu
+or32	ignored	Linux	ignored	ignored	or32-unknown-linux-gnu
+padre	2.6.15	Linux	ignored	ignored	sparc-unknown-linux-gnu
+pc	1.0	ignored	ignored	ignored	i586-pc-msdosdjgpp
+PowerPC	4.2	LynxOS	ignored	ignored	powerpc-unknown-lynxos4.2
+ppc	2.6.9-22	Linux	ignored	ignored	powerpc-unknown-linux-gnu
+ppc64	2.6.9-22	Linux	ignored	ignored	powerpc64-unknown-linux-gnu
+ppc64le	3.1.0	Linux	ignored	ignored	powerpc64le-unknown-linux-gnu
+riscv32	ignored	Linux	ignored	ignored	riscv32-unknown-linux-gnu
+riscv64	ignored	Linux	ignored	ignored	riscv64-unknown-linux-gnu
+s390x	5.6	SunOS	ignored	ignored	s390x-ibm-solaris2.6
+SX-7	1.0	SUPER-UX	ignored	ignored	sx7-nec-superux1.0
+SX-8	1.0	SUPER-UX	ignored	ignored	sx8-nec-superux1.0
+SX-8R	1.0	SUPER-UX	ignored	ignored	sx8r-nec-superux1.0
+SX-ACE	1.0	SUPER-UX	ignored	ignored	sxace-nec-superux1.0
+tile	2.6.36	Linux	ignored	ignored	tile-unknown-linux-gnu
+tilegx	2.6.36	Linux	ignored	ignored	tilegx-unknown-linux-gnu
+vax	2.6.15	Linux	ignored	ignored	vax-dec-linux-gnu
+x86	5.2	Interix	ignored	ignored	i586-pc-interix5.2
+x86	6.0	Interix	ignored	ignored	i586-pc-interix6.0
+x86_64	1.0	Haiku	ignored	ignored	x86_64-unknown-haiku
+x86_64	1.0	MINGW64	ignored	ignored	x86_64-pc-mingw64
+x86_64	1.0	MINGW	ignored	ignored	x86_64-pc-mingw32
+x86_64	1.5.18(0.132/4/2)	CYGWIN_NT-5.2	ignored	ignored	x86_64-unknown-cygwin
+x86_64	2.0.0(0.271/5/3)	MSYS_NT-6.1	ignored	ignored	x86_64-pc-msys
+x86_64	2.6.32	Linux	ignored	ignored	x86_64-pc-linux-gnu
+x86_64	2.6.32	VMkernel	ignored	ignored	x86_64-unknown-esx
+xtensa	2.6.15	Linux	ignored	ignored	xtensa-unknown-linux-gnu
+i386	1.0	Sortix	ignored	ignored i386-unknown-sortix
+x86_64	1.0	Sortix	ignored	ignored x86_64-unknown-sortix
