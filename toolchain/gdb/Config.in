@@ -21,7 +21,7 @@ config BR2_PACKAGE_GDB_HOST
 
 choice
 	prompt "GDB debugger Version"
-	default BR2_GDB_VERSION_6_8 if !BR2_avr32 && !BR2_m9s12x
+	default BR2_GDB_VERSION_6_8A if !BR2_avr32 && !BR2_m9s12x
 	default BR2_GDB_VERSION_6_4 if BR2_m9s12x
 	default BR2_GDB_VERSION_6_3 if BR2_avr32
 	depends on BR2_PACKAGE_GDB || BR2_PACKAGE_GDB_SERVER || BR2_PACKAGE_GDB_HOST
@@ -36,8 +36,8 @@ choice
 		bool "gdb 6.3"
 		depends on BR2_m9s12x
 
-	config BR2_GDB_VERSION_6_8
-		bool "gdb 6.8"
+	config BR2_GDB_VERSION_6_8A
+		bool "gdb 6.8a"
 		depends on !BR2_avr32
 
 	config BR2_GDB_VERSION_7_4_1
@@ -69,7 +69,7 @@ config BR2_GDB_VERSION
 	string
 	default "6.3"      if BR2_GDB_VERSION_6_3
 	default "6.4"      if BR2_GDB_VERSION_6_4
-	default "6.8"      if BR2_GDB_VERSION_6_8
+	default "6.8a"     if BR2_GDB_VERSION_6_8A
 	default "7.4.1"    if BR2_GDB_VERSION_7_4_1
 	default "7.9.1"    if BR2_GDB_VERSION_7_9_1
 
