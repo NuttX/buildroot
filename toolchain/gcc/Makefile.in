@@ -1,12 +1,8 @@
 #
 
 GCC_VERSION:=$(strip $(subst ",, $(BR2_GCC_VERSION)))
-#"))
 TARGET_OPTIMIZATION:=$(strip $(subst ",, $(BR2_TARGET_OPTIMIZATION)))
-#"))
 EXTRA_GCC_CONFIG_OPTIONS:=$(strip $(subst ",, $(BR2_EXTRA_GCC_CONFIG_OPTIONS)))
-#"))
-#")))
 
 ifeq ($(strip $(BR2_GCC_USE_SJLJ_EXCEPTIONS)),y)
 GCC_USE_SJLJ_EXCEPTIONS:=--enable-sjlj-exceptions

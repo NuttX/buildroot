@@ -246,9 +246,11 @@ A: This was reported on Fedora F14.  The cause of the problem is that some host
    binutils header files were moved from the binutils RPM to the binutils-dev
    RPM.  The fix is to install the binutils-dev RPM.
 
+
 Q: How do I build the NuttX toolchain under Cygwin?
 
 A: See below...
+
 
 Q: NuttX directory ../../nuttx does not exist
 
@@ -262,11 +264,13 @@ A: The default path to the nuttx directory is $(TOPDIR)/../../nuttx where
    to edit the configuration.  Find the option to set the path to NuttX
    and set it to the correct location for your build environment.
 
+
 Q: Some of my libraries like GMP and MPFR are in non-standard locations the
    GCC build can't file them:
 
      checking for correct version of mpfr.h... no
      configure: error: Building GCC requires GMP 4.1+ and MPFR 2.3.0+.
+
 
 A: https://groups.yahoo.com/neo/groups/nuttx/conversations/messages/1160
 
@@ -291,6 +295,7 @@ A: https://groups.yahoo.com/neo/groups/nuttx/conversations/messages/1160
     invoked. I think you would have to hard code those path options into those
     configure commands."
 
+
 Q: When I try to run the tools I get errors like 'cc1' not found or strange
    errors from 'as'.
 
@@ -306,6 +311,32 @@ A: Did you move the toolchain after you built it?  I used to do that all of the
    Cortect-M4F toolchain then using it with a Cortex-M3 or M4 without floating
    point Make.defs caused the path to 'cc1' to be lost.
 
+
+Q: When trying to build GCC 7.9.1 under Cygwin, I got this error:
+
+     ...
+     checking for the correct version of gmp.h... yes
+     checking for the correct version of mpfr.h... yes
+     checking for the correct version of mpc.h... yes
+     checking for the correct version of the gmp/mpfr/mpc libraries... no
+     configure: error: Building GCC requires GMP 4.2+, MPFR 2.4.0+ and MPC 0.8.0+.
+     Try the --with-gmp, --with-mpfr and/or --with-mpc options to specify
+     their locations.  ...
+
+   In config.log
+
+     configure:5811: checking for the correct version of the gmp/mpfr/mpc libraries
+     configure:5842: gcc -o conftest.exe -g -O2    conftest.c  -lmpc -lmpfr -lgmp >&5
+     /usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../../../x86_64-pc-cygwin/bin/ld: cannot find -lmpc
+     /usr/lib/gcc/x86_64-pc-cygwin/4.9.3/../../../../x86_64-pc-cygwin/bin/ld: cannot find -lmpfr
+     collect2: error: ld returned 1 exit status
+
+A: My GMP, MPFR, and MPC were installed under /user/local/lib.  I reconfigured
+   adding this setting:
+
+    BR2_EXTRA_GCC_CONFIG_OPTIONS="--with-mpc=/usr/local --with-mpfr=/usr/local --with-gmp=/usr/local"
+
+   And the build continued with the above error.
 
 Cygwin GCC BUILD NOTES
 ^^^^^^^^^^^^^^^^^^^^^^
