@@ -127,7 +127,7 @@ i486-defconfig-4.3.3
   probably not usable for most NuttX targets.  Instead, you should use this
   i486-elf-gcc to generate true ELF binaries under Cygwin.
 
-lm32-eabi-defconfig-6.1.0
+lm32-elf-defconfig-6.1.0
   Build a toolchain for use with the Misoc LM3S port using gcc 6.1.0
 
 m32c_defconfig_4.2.4
