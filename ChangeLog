@@ -179,4 +179,7 @@ buildroot-1.16 2016-xx-xx <gnutt@nuttx.org>
 	* Add support for LM32 toolchain (2016-11-01)
 	* package/gnuconfig:  Update the GNU config package (2016-11-02)
 	* GDB 6.8 is no longer available.  Use GDB 6.8a instead (2016-11-03).
-
+	* Use proper value for soft-float configure option. Option
+	  '--without-float' produces variable `float=n' while it should be
+	  specific (hard/soft or so).  From Anton D. Kachalov (2017-03-09).
+	* Add support for Cortex-M1.  From Anton D. Kachalov (2017-03-09).
