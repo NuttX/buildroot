@@ -15,7 +15,7 @@ ifneq ($(BR2_nios2),y)
 SOFT_FLOAT_CONFIG_OPTION:=--with-float=soft
 endif
 else
-SOFT_FLOAT_CONFIG_OPTION:=--without-float
+SOFT_FLOAT_CONFIG_OPTION:=--with-float=soft
 endif
 
 # again... there must be a better way
@@ -81,6 +81,10 @@ GCC_WITH_ABI:=--with-abi=$(BR2_GCC_TARGET_ABI)
 endif
 
 ifdef BR2_cortex_m0
+GCC_WITH_MODE:=--with-mode=thumb
+endif
+
+ifdef BR2_cortex_m1
 GCC_WITH_MODE:=--with-mode=thumb
 endif
 
