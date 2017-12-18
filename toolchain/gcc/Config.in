@@ -57,20 +57,25 @@ choice
 		select BR2_GCC_SUPPORTS_SYSROOT
 		bool "gcc 4.8.5"
 
-	config BR2_GCC_VERSION_4_9_3
+	config BR2_GCC_VERSION_4_9_4
 		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
 		select BR2_GCC_SUPPORTS_SYSROOT
-		bool "gcc 4.9.3"
+		bool "gcc 4.9.4"
 
-	config BR2_GCC_VERSION_5_4_0
+	config BR2_GCC_VERSION_5_5_0
 		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
 		select BR2_GCC_SUPPORTS_SYSROOT
-		bool "gcc 5.4.0"
+		bool "gcc 5.5.0"
 
-	config BR2_GCC_VERSION_6_1_0
+	config BR2_GCC_VERSION_6_4_0
 		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
 		select BR2_GCC_SUPPORTS_SYSROOT
-		bool "gcc 6.1.0"
+		bool "gcc 6.4.0"
+
+	config BR2_GCC_VERSION_7_2_0
+		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
+		select BR2_GCC_SUPPORTS_SYSROOT
+		bool "gcc 7.2.0"
 
 endchoice
 
@@ -88,9 +93,10 @@ config BR2_GCC_VERSION
 	default "4.6.3"     if BR2_GCC_VERSION_4_6_3
 	default "4.7.4"     if BR2_GCC_VERSION_4_7_4
 	default "4.8.5"     if BR2_GCC_VERSION_4_8_5
-	default "4.9.3"     if BR2_GCC_VERSION_4_9_3
-	default "5.4.0"     if BR2_GCC_VERSION_5_4_0
-	default "6.1.0"     if BR2_GCC_VERSION_6_1_0
+	default "4.9.4"     if BR2_GCC_VERSION_4_9_4
+	default "5.5.0"     if BR2_GCC_VERSION_5_5_0
+	default "6.4.0"     if BR2_GCC_VERSION_6_4_0
+	default "7.2.0"     if BR2_GCC_VERSION_7_2_0
 
 config BR2_GCC_USE_SJLJ_EXCEPTIONS
 	bool "Enable setjmp/longjmp exceptions?"
