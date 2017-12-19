@@ -3,8 +3,8 @@
 *.d
 *.i
 *~
-.swp
-.*.swp
+.sw[op]
+.*.sw[op]
 core
 .gdbinit
 cscope.out
@@ -13,3 +13,4 @@ cscope.out
 /.config.old
 /build_*
 /toolchain_build_*
+/dl

@@ -10,6 +10,7 @@ BR2_arm=y
 # BR2_bfin is not set
 # BR2_cris is not set
 # BR2_i386 is not set
+# BR2_lm32 is not set
 # BR2_m32c is not set
 # BR2_m68k is not set
 # BR2_m68hc11 is not set
@@ -41,6 +42,7 @@ BR2_arm=y
 # BR2_cortex_m3 is not set
 BR2_cortex_m4f=y
 # BR2_cortex_m0 is not set
+# BR2_cortex_m1 is not set
 # BR2_sa110 is not set
 # BR2_sa1100 is not set
 # BR2_xscale is not set
@@ -86,8 +88,9 @@ BR2_PACKAGE_BINUTILS=y
 # BR2_BINUTILS_VERSION_2_21_1 is not set
 # BR2_BINUTILS_VERSION_2_22 is not set
 # BR2_BINUTILS_VERSION_2_24 is not set
-BR2_BINUTILS_VERSION_2_26_1=y
-BR2_BINUTILS_VERSION="2.26.1"
+# BR2_BINUTILS_VERSION_2_26_1 is not set
+BR2_BINUTILS_VERSION_2_28_1=y
+BR2_BINUTILS_VERSION="2.28.1"
 BR2_EXTRA_BINUTILS_CONFIG_OPTIONS=""
 
 #
@@ -100,13 +103,14 @@ BR2_PACKAGE_GCC=y
 # BR2_GCC_VERSION_4_3_3 is not set
 # BR2_GCC_VERSION_4_5_2 is not set
 # BR2_GCC_VERSION_4_6_3 is not set
-BR2_GCC_VERSION_4_7_4=y
+# BR2_GCC_VERSION_4_7_4 is not set
 # BR2_GCC_VERSION_4_8_5 is not set
 # BR2_GCC_VERSION_4_9_4 is not set
-# BR2_GCC_VERSION_5_4_0 is not set
-# BR2_GCC_VERSION_6_1_0 is not set
+# BR2_GCC_VERSION_5_5_0 is not set
+# BR2_GCC_VERSION_6_4_0 is not set
+BR2_GCC_VERSION_7_2_0=y
 BR2_GCC_SUPPORTS_SYSROOT=y
-BR2_GCC_VERSION="4.7.4"
+BR2_GCC_VERSION="7.2.0"
 # BR2_GCC_USE_SJLJ_EXCEPTIONS is not set
 BR2_EXTRA_GCC_CONFIG_OPTIONS=""
 BR2_INSTALL_LIBSTDCPP=y
@@ -124,9 +128,11 @@ BR2_PACKAGE_GDB_HOST=y
 # BR2_GDB_VERSION_6_4 is not set
 # BR2_GDB_VERSION_6_8A is not set
 # BR2_GDB_VERSION_7_4_1 is not set
-BR2_GDB_VERSION_7_9_1=y
+# BR2_GDB_VERSION_7_9_1 is not set
+# BR2_GDB_VERSION_7_12_1 is not set
+BR2_GDB_VERSION_8_0_1=y
 BR2_PACKAGE_GDB_TUI=y
-BR2_GDB_VERSION="7.9.1"
+BR2_GDB_VERSION="8.0.1"
 
 #
 # NuttX Binary Support

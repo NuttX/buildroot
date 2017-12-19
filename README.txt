@@ -188,6 +188,16 @@ GENERAL BUILD STEPS
    have "-devel" in the package name.  So you need mpfr-devl and gmp-devel (and
    maybe mpc-devl).
 
+
+   Update:  According to David Alessio you should make sure that you have the
+   following installed (Ubuntu 16.4):
+
+      sudo apt install build-essential
+      sudo apt install bison flex gperf
+      sudo apt install libgmp-dev libmpc-dev libmpfr-dev libisl-dev
+      sudo apt install binutils-dev libelf-dev
+      sudo apt install libexpat-dev
+
 2. CD to the correct directory.
 
    Change to the directory just above the NuttX installation.  If <nuttx-dir> is

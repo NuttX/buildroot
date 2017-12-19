@@ -48,6 +48,14 @@ choice
 		bool "gdb 7.9.1"
 		depends on !BR2_bfin
 
+	config BR2_GDB_VERSION_7_12_1
+		bool "gdb 7.12.1"
+		depends on !BR2_bfin
+
+	config BR2_GDB_VERSION_8_0_1
+		bool "gdb 8.0.1"
+		depends on !BR2_bfin
+
 endchoice
 
 config BR2_PACKAGE_GDB_TUI
@@ -72,4 +80,6 @@ config BR2_GDB_VERSION
 	default "6.8a"     if BR2_GDB_VERSION_6_8A
 	default "7.4.1"    if BR2_GDB_VERSION_7_4_1
 	default "7.9.1"    if BR2_GDB_VERSION_7_9_1
+	default "7.12.1"   if BR2_GDB_VERSION_7_12_1
+	default "8.0.1"    if BR2_GDB_VERSION_8_0_1
 

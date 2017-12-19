@@ -24,9 +24,12 @@ GCC_OFFICIAL_VER:=$(GCC_VERSION)
 GCC_SITE:=http://ftp.gnu.org/gnu/gcc/gcc-$(GCC_VERSION)
 #GCC_SITE:=ftp://ftp.ibiblio.org/pub/mirrors/gnu/ftp/gnu/gcc/gcc-$(GCC_OFFICIAL_VER)
 
-GCC_SOURCE:=gcc-$(GCC_OFFICIAL_VER).tar.bz2
+#GCC_SOURCE:=gcc-$(GCC_OFFICIAL_VER).tar.bz2
+GCC_SOURCE:=gcc-$(GCC_OFFICIAL_VER).tar.gz
+#GCC_SOURCE:=gcc-$(GCC_OFFICIAL_VER).tar.xz
 GCC_DIR:=$(TOOL_BUILD_DIR)/gcc-$(GCC_OFFICIAL_VER)
-GCC_CAT:=$(BZCAT)
+#GCC_CAT:=$(BZCAT)
+GCC_CAT:=$(ZCAT)
 GCC_STRIP_HOST_BINARIES:=true
 
 # gcc 4.6.x quadmath requires wchar
