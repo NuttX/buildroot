@@ -174,12 +174,27 @@ buildroot-1.15 2016-07-31 <gnutt@nuttx.org>
 	    cases. No issues.
 	  - gcc 4.8 and above need gdb 7.9 (compatible elf/dwarf-4 format)
 
-buildroot-1.16 2016-xx-xx <gnutt@nuttx.org>
+buildroot-1.16 2018-03-02 <gnutt@nuttx.org>
 
 	* Add support for LM32 toolchain (2016-11-01)
 	* package/gnuconfig:  Update the GNU config package (2016-11-02)
 	* GDB 6.8 is no longer available.  Use GDB 6.8a instead (2016-11-03).
+	* Add missed library.  From Anton D. Kachalov (2017-03-09).
 	* Use proper value for soft-float configure option. Option
 	  '--without-float' produces variable `float=n' while it should be
 	  specific (hard/soft or so).  From Anton D. Kachalov (2017-03-09).
 	* Add support for Cortex-M1.  From Anton D. Kachalov (2017-03-09).
+	* Update tools
+	  - bump gcc 4.9.3 to 4.9.4
+	  - grab gzip'd tarballs, gzip seems to be common across revs
+	  - bump gcc 5.4.0 to 5.5.0
+	  - bump gcc 6.1.0 to 6.4.0
+	  - add gcc 7.2.0
+	  - add gdb 7.12.1
+	  - add gdb 8.0.1
+	  - add binutils 2.28.1
+	  - ignore download dir and all vim swap files
+	  - config file: gcc 7.2.0 Cortex M4F hard-float, gdb 8.0.1
+	  From David Alessio (2017-12-18).
+
+buildroot-1.17 2018-xx-xx <gnutt@nuttx.org>
