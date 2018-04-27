@@ -8,9 +8,8 @@
  * the options -fpic -msingle-pic-base (and -mno-got or -membedded-pic, but
  * will and GOT relocations as well).
  *
- *   Copyright (C) 2009 Gregory Nutt. All rights reserved.
+ *   Copyright (C) 2009, 2018 Gregory Nutt. All rights reserved.
  *   Author: Gregory Nutt <gnutt@nuttx.org>
- *
  *
  * Modified from ldelf2xflat (see http://xflat.org):
  *
@@ -1549,23 +1548,88 @@ static void dump_symbol(asymbol * psym)
 
   /* Common attributes */
 
-  printf("|%c", psym->flags & BSF_OBJECT ? 'O' : '.');
-  printf("%c",  psym->flags & BSF_DYNAMIC ? 'D' : '.');
-  printf("%c",  psym->flags & BSF_FILE ? 'F' : '.');
-  printf("%c",  psym->flags & BSF_INDIRECT ? 'I' : '.');
-  printf("%c",  psym->flags & BSF_WARNING ? 'W' : '.');
-  printf("%c",  psym->flags & BSF_CONSTRUCTOR ? 'C' : '.');
-  printf("%c",  psym->flags & BSF_NOT_AT_END ? 'N' : '.');
-  printf("%c",  psym->flags & BSF_OLD_COMMON ? 'c' : '.');
-  printf("%c",  psym->flags & BSF_SECTION_SYM ? 'S' : '.');
-  printf("%c",  psym->flags & BSF_WEAK ? 'w' : '.');
-  printf("%c",  psym->flags & BSF_KEEP_G ? 'G' : '.');
-  printf("%c",  psym->flags & BSF_KEEP ? 'K' : '.');
-  printf("%c",  psym->flags & BSF_FUNCTION ? 'f' : '.');
-  printf("%c",  psym->flags & BSF_DEBUGGING ? 'd' : '.');
-  printf("%c",  psym->flags & BSF_GLOBAL ? 'g' : '.');
-  printf("%c|", psym->flags & BSF_LOCAL ? 'l' : '.');
-  printf("\n");
+  putchar('|');
+#ifdef BSF_OBJECT
+  printf("%c", psym->flags & BSF_OBJECT ? 'O' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_DYNAMIC
+  printf("%c", psym->flags & BSF_DYNAMIC ? 'D' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_FILE
+  printf("%c", psym->flags & BSF_FILE ? 'F' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_INDIRECT
+  printf("%c", psym->flags & BSF_INDIRECT ? 'I' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_WARNING
+  printf("%c", psym->flags & BSF_WARNING ? 'W' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_CONSTRUCTOR
+  printf("%c", psym->flags & BSF_CONSTRUCTOR ? 'C' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_NOT_AT_END
+  printf("%c", psym->flags & BSF_NOT_AT_END ? 'N' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_OLD_COMMON
+  printf("%c", psym->flags & BSF_OLD_COMMON ? 'c' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_SECTION_SYM
+  printf("%c", psym->flags & BSF_SECTION_SYM ? 'S' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_WEAK
+  printf("%c", psym->flags & BSF_WEAK ? 'w' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_KEEP_G
+  printf("%c", psym->flags & BSF_KEEP_G ? 'G' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_KEEP
+  printf("%c", psym->flags & BSF_KEEP ? 'K' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_FUNCTION
+  printf("%c", psym->flags & BSF_FUNCTION ? 'f' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_DEBUGGING
+  printf("%c", psym->flags & BSF_DEBUGGING ? 'd' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_GLOBAL
+  printf("%c", psym->flags & BSF_GLOBAL ? 'g' : '.');
+#else
+  putchar('.');
+#endif
+#ifdef BSF_LOCAL
+  printf("%c", psym->flags & BSF_LOCAL ? 'l' : '.');
+#else
+  putchar('.');
+#endif
+  printf("|\n");
 }
 
 /***********************************************************************

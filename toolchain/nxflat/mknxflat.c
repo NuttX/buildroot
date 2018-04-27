@@ -1,7 +1,7 @@
 /***********************************************************************
  * xflat/tools/mknxflat.c
  *
- *   Copyright (C) 2009 Gregory Nutt. All rights reserved.
+ *   Copyright (C) 2009, 2018 Gregory Nutt. All rights reserved.
  *   Author: Gregory Nutt <gnutt@nuttx.org>
  *
  * Modified from ldelflib (see http://xflat.org):
@@ -82,7 +82,7 @@
  * Private Types
  ***********************************************************************/
 
-typedef int (*symfunc_type) (asymbol * sym, void *arg);
+typedef int (*symfunc_type) (asymbol *sym, void *arg);
 typedef int (*namefunc_type) (const char *name, void *arg);
 
 /***********************************************************************
@@ -228,7 +228,7 @@ static int traverse_undefined_functions(void *arg, symfunc_type fn)
           (!IS_DEFINED(symbol_table[i])) && (!IS_OBJECT(symbol_table[i])))
         {
           /* Is is imported as a "weak" symbol? If so, we will process the
-           * symbol only if we were requested to do so from the command line. */
+           *symbol only if we were requested to do so from the command line. */
 
           if ((!IS_WEAK(symbol_table[i])) || (weak_imports > 0))
             {
@@ -300,7 +300,7 @@ static int does_not_return_name(const char *func_name)
   return 0;
 }
 
-static int does_not_return_sym(asymbol * sym, void *arg)
+static int does_not_return_sym(asymbol *sym, void *arg)
 {
   const char *func_name = sym->name;
   if (func_name)
@@ -323,7 +323,7 @@ static void check_for_nonreturning_functions(void)
  * count_undefined
  ***********************************************************************/
 
-static int count_undefined(asymbol * sym, void *arg)
+static int count_undefined(asymbol *sym, void *arg)
 {
   number_undefined++;
   return 0;
@@ -333,13 +333,14 @@ static int count_undefined(asymbol * sym, void *arg)
  * put_dynimport_decl
  ***********************************************************************/
 
-static int put_dynimport_decl(asymbol * sym, void *arg)
+static int put_dynimport_decl(asymbol *sym, void *arg)
 {
   char dynimport_decl[1024];
   const char *func_name = sym->name;
-  int fd = (int)arg;
+  int fd = (int)((intptr_t)arg);
 
   /* Put the declaration for the dynamic info structure */
+
   if (func_name)
     {
       sprintf(dynimport_decl, dynimport_decl_format,
@@ -347,6 +348,7 @@ static int put_dynimport_decl(asymbol * sym, void *arg)
       put_string(fd, dynimport_decl);
       counter++;
     }
+
   return 0;
 }
 
@@ -354,11 +356,11 @@ static int put_dynimport_decl(asymbol * sym, void *arg)
  * put_dynimport_array
  ***********************************************************************/
 
-static int put_dynimport_array(asymbol * sym, void *arg)
+static int put_dynimport_array(asymbol *sym, void *arg)
 {
   char dynimport_array[1024];
   const char *func_name = sym->name;
-  int fd = (int)arg;
+  int fd = (int)((intptr_t)arg);
 
   /* Create the dynimport_array */
 
@@ -369,6 +371,7 @@ static int put_dynimport_array(asymbol * sym, void *arg)
       put_string(fd, dynimport_array);
       counter++;
     }
+
   return 0;
 }
 
@@ -376,11 +379,11 @@ static int put_dynimport_array(asymbol * sym, void *arg)
  * put_nxflat_import
  ***********************************************************************/
 
-static int put_nxflat_import(asymbol * sym, void *arg)
+static int put_nxflat_import(asymbol *sym, void *arg)
 {
   char thunk[4096];
   const char *func_name = sym->name;
-  int fd = (int)arg;
+  int fd = (int)((intptr_t)arg);
 
   if (func_name)
     {
@@ -402,6 +405,7 @@ static int put_nxflat_import(asymbol * sym, void *arg)
       put_string(fd, thunk);
       counter++;
     }
+
   return 0;
 }
 
@@ -417,20 +421,23 @@ static void put_all_nxflat_import(int fd)
 
       put_string(fd, dynimport_decl_prologue);
       counter = 0;
-      (void)traverse_undefined_functions((void *)fd, put_dynimport_decl);
+      (void)traverse_undefined_functions((void *)((intptr_t)fd),
+                                         put_dynimport_decl);
 
       /* Put all of the dynimport structures together as an array */
 
       put_string(fd, dynimport_array_prologue);
       counter = 0;
-      (void)traverse_undefined_functions((void *)fd, put_dynimport_array);
+      (void)traverse_undefined_functions((void *)((intptr_t)fd),
+                                         put_dynimport_array);
       put_string(fd, dynimport_array_epilogue);
 
       /* Put all of the dyncall logic together */
 
       put_string(fd, dyncall_decl_prologue);
       counter = 0;
-      (void)traverse_undefined_functions((void *)fd, put_nxflat_import);
+      (void)traverse_undefined_functions((void *)((intptr_t)fd),
+                                         put_nxflat_import);
     }
 }
 
@@ -438,11 +445,11 @@ static void put_all_nxflat_import(int fd)
  * put_import_name
  ***********************************************************************/
 
-static int put_import_name(asymbol * sym, void *arg)
+static int put_import_name(asymbol *sym, void *arg)
 {
   char import_name[512];
   const char *func_name = sym->name;
-  int fd = (int)arg;
+  int fd = (int)((intptr_t)arg);
 
   /* Create the import_name */
 
@@ -453,6 +460,7 @@ static int put_import_name(asymbol * sym, void *arg)
       put_string(fd, import_name);
       counter++;
     }
+
   return 0;
 }
 
@@ -466,7 +474,8 @@ static void inline put_import_name_strtab(int fd)
     {
       counter = 0;
       put_string(fd, import_name_strtab_prologue);
-      (void)traverse_undefined_functions((void *)fd, put_import_name);
+      (void)traverse_undefined_functions((void *)((intptr_t)fd),
+                                         put_import_name);
     }
 }
 
