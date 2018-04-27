@@ -1550,82 +1550,82 @@ static void dump_symbol(asymbol * psym)
 
   putchar('|');
 #ifdef BSF_OBJECT
-  printf("%c", psym->flags & BSF_OBJECT ? 'O' : '.');
+  putchar(psym->flags & BSF_OBJECT ? 'O' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_DYNAMIC
-  printf("%c", psym->flags & BSF_DYNAMIC ? 'D' : '.');
+  putchar(psym->flags & BSF_DYNAMIC ? 'D' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_FILE
-  printf("%c", psym->flags & BSF_FILE ? 'F' : '.');
+  putchar(psym->flags & BSF_FILE ? 'F' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_INDIRECT
-  printf("%c", psym->flags & BSF_INDIRECT ? 'I' : '.');
+  putchar(psym->flags & BSF_INDIRECT ? 'I' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_WARNING
-  printf("%c", psym->flags & BSF_WARNING ? 'W' : '.');
+  putchar(psym->flags & BSF_WARNING ? 'W' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_CONSTRUCTOR
-  printf("%c", psym->flags & BSF_CONSTRUCTOR ? 'C' : '.');
+  putchar(psym->flags & BSF_CONSTRUCTOR ? 'C' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_NOT_AT_END
-  printf("%c", psym->flags & BSF_NOT_AT_END ? 'N' : '.');
+  putchar(psym->flags & BSF_NOT_AT_END ? 'N' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_OLD_COMMON
-  printf("%c", psym->flags & BSF_OLD_COMMON ? 'c' : '.');
+  putchar(psym->flags & BSF_OLD_COMMON ? 'c' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_SECTION_SYM
-  printf("%c", psym->flags & BSF_SECTION_SYM ? 'S' : '.');
+  putchar(psym->flags & BSF_SECTION_SYM ? 'S' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_WEAK
-  printf("%c", psym->flags & BSF_WEAK ? 'w' : '.');
+  putchar(psym->flags & BSF_WEAK ? 'w' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_KEEP_G
-  printf("%c", psym->flags & BSF_KEEP_G ? 'G' : '.');
+  putchar(psym->flags & BSF_KEEP_G ? 'G' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_KEEP
-  printf("%c", psym->flags & BSF_KEEP ? 'K' : '.');
+  putchar(psym->flags & BSF_KEEP ? 'K' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_FUNCTION
-  printf("%c", psym->flags & BSF_FUNCTION ? 'f' : '.');
+  putchar(psym->flags & BSF_FUNCTION ? 'f' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_DEBUGGING
-  printf("%c", psym->flags & BSF_DEBUGGING ? 'd' : '.');
+  putchar(psym->flags & BSF_DEBUGGING ? 'd' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_GLOBAL
-  printf("%c", psym->flags & BSF_GLOBAL ? 'g' : '.');
+  putchar(psym->flags & BSF_GLOBAL ? 'g' : '.');
 #else
   putchar('.');
 #endif
 #ifdef BSF_LOCAL
-  printf("%c", psym->flags & BSF_LOCAL ? 'l' : '.');
+  putchar(psym->flags & BSF_LOCAL ? 'l' : '.');
 #else
   putchar('.');
 #endif
