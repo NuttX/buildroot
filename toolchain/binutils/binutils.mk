@@ -44,6 +44,7 @@ $(BINUTILS_DIR1)/.configured: $(BINUTILS_DIR)/.patched
 		--build=$(GNU_HOST_NAME) \
 		--host=$(GNU_HOST_NAME) \
 		--target=$(REAL_GNU_TARGET_NAME) \
+		--with-sysroot \
 		$(DISABLE_NLS) \
 		$(MULTILIB) \
 		--disable-werror \
