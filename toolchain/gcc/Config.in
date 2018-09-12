@@ -75,11 +75,16 @@ choice
 	config BR2_GCC_VERSION_7_3_0
 		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
 		select BR2_GCC_SUPPORTS_SYSROOT
+		select BR2_GCC_SUPPORTS_NUTTX_OS
 		bool "gcc 7.3.0"
 
 endchoice
 
 config BR2_GCC_SUPPORTS_SYSROOT
+	bool
+	default n
+
+config BR2_GCC_SUPPORTS_NUTTX_OS
 	bool
 	default n
 

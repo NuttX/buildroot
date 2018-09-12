@@ -90,6 +90,20 @@ $(GCC_DIR)/.patched: $(GCC_DIR)/.unpacked
 	# Apply any files named gcc-*.patch from the source directory to gcc
 	toolchain/patch-kernel.sh $(GCC_DIR) toolchain/gcc/$(GCC_VERSION) \*.patch
 
+	# NuttX buildroot uses packages/gnuconfig to copy in a common config.sub/config.guess
+	# to all toolchain components. However, the behavior of these scripts must
+	# change with the addition of NuttX OS support in GCC/binutils. If gcc/binutils
+	# are being patched to handle 'nuttx-eabi' as kernel/os portion of triplet,
+	# then config.sub most also be patched so that the triplet (ex. arm-nuttx-eabi)
+	# is interpreted as arm-unknown-nuttx-eabi. This means the vendor is 'unknown'
+	# and the system is 'nuttx-eabi'.  Without this patch, config.sub outputs a
+	# canonical triplet 'arm-nuttx-eabi'. In this case the vendor is 'nuttx' and
+	# the kernel/os is 'eabi'
+
+ifeq (${BR2_GCC_SUPPORTS_NUTTX_OS},y)
+	toolchain/patch-kernel.sh $(GCC_DIR) package/gnuconfig 0001-add-nuttx-os.patch
+endif
+
 	# Note: The soft float situation has improved considerably with gcc 3.4.x.
 	# We can dispense with the custom spec files, as well as libfloat for the arm case.
 	# However, we still need a patch for arm.  There's a similar patch for gcc 3.3.x
