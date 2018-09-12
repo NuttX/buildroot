@@ -1,0 +1,24 @@
+From 5536358ee329d6eb6415974f40801d56f6644be0 Mon Sep 17 00:00:00 2001
+From: Anthony Merlino <anthony@vergeaero.com>
+Date: Sun, 26 Aug 2018 04:50:39 -0400
+Subject: [PATCH 5/6] Associate our target with our armelf_nuttx emulation
+
+---
+ ld/configure.tgt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/ld/configure.tgt b/ld/configure.tgt
+index b85c6bb..95a2699 100644
+--- a/ld/configure.tgt
++++ b/ld/configure.tgt
+@@ -155,6 +155,7 @@ arm*-*-conix*)		targ_emul=armelf ;;
+ arm*-*-fuchsia*)	targ_emul=armelf_fuchsia
+ 			targ_extra_emuls="armelfb_fuchsia armelf armelfb"
+ 			;;
++arm*-*-nuttx*)		targ_emul=armelf ;;
+ avr-*-*)		targ_emul=avr2
+ 			targ_extra_emuls="avr1 avr25 avr3 avr31 avr35 avr4 avr5 avr51 avr6 avrxmega1 avrxmega2 avrxmega3 avrxmega4 avrxmega5 avrxmega6 avrxmega7 avrtiny"
+ 			;;
+-- 
+2.14.4
+

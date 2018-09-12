@@ -1,0 +1,21 @@
+From 229117287644d3bf01982f0a11cc8e40d344f36e Mon Sep 17 00:00:00 2001
+From: Anthony Merlino <anthony@vergeaero.com>
+Date: Sun, 26 Aug 2018 04:49:51 -0400
+Subject: [PATCH 4/6] Define armelf_nuttx emulation (combo of linker script and
+ exe format). For nuttx we just point to armelf
+
+---
+ ld/emulparams/armelf_nuttx.sh | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 ld/emulparams/armelf_nuttx.sh
+
+diff --git a/ld/emulparams/armelf_nuttx.sh b/ld/emulparams/armelf_nuttx.sh
+new file mode 100644
+index 0000000..8a0779b
+--- /dev/null
++++ b/ld/emulparams/armelf_nuttx.sh
+@@ -0,0 +1 @@
++. ${srcdir}/emulparams/armelf.sh
+-- 
+2.14.4
+

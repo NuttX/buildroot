@@ -1,0 +1,26 @@
+From 3285eab42cdac32795142fbaa531a6e7db93f6ce Mon Sep 17 00:00:00 2001
+From: Anthony Merlino <anthony@vergeaero.com>
+Date: Sun, 26 Aug 2018 15:15:12 -0400
+Subject: [PATCH 4/5] Add nuttx startup info to libgcc/config.host
+
+---
+ libgcc/config.host | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/libgcc/config.host b/libgcc/config.host
+index 8beb492b5fa1..beaa78e2d132 100644
+--- a/libgcc/config.host
++++ b/libgcc/confjg.host
+@@ -255,6 +255,9 @@ case ${host} in
+       ;;
+   esac
+   ;;
++*-*-nuttx)
++  extra_parts="crtbegin.o crtend.o"
++  ;;
+ *-*-openbsd*)
+   tmake_file="$tmake_file t-crtstuff-pic t-libgcc-pic t-eh-dw2-dip"
+   case ${target_thread_file} in
+--
+2.14.4
+

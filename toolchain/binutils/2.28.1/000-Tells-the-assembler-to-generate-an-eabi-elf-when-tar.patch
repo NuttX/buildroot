@@ -1,0 +1,58 @@
+From bbdee5512b8e97e2ee5c5e0bc93778d42fe2f802 Mon Sep 17 00:00:00 2001
+From: Anthony Merlino <anthony@vergeaero.com>
+Date: Sun, 26 Aug 2018 04:46:37 -0400
+Subject: [PATCH 3/6] Tells the assembler to generate an eabi elf when
+ targeting nuttx
+
+---
+ gas/configure.tgt | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/gas/configure.tgt b/gas/configure.tgt
+index 711d537..39f37bb 100644
+--- a/gas/configure.tgt
++++ b/gas/configure.tgt
+@@ -6,12 +6,12 @@
+ # it under the terms of the GNU General Public License as published by
+ # the Free Software Foundation; either version 3 of the License, or
+ # (at your option) any later version.
+-# 
++#
+ # This program is distributed in the hope that it will be useful,
+ # but WITHOUT ANY WARRANTY; without even the implied warranty of
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ # GNU General Public License for more details.
+-# 
++#
+ # You should have received a copy of the GNU General Public License
+ # along with this program; see the file COPYING3.  If not see
+ # <http://www.gnu.org/licenses/>.
+@@ -158,6 +158,7 @@ case ${generic_target} in
+   arm-*-*n*bsd*)			fmt=aout em=nbsd ;;
+   arm-*-nto*)				fmt=elf ;;
+   arm-epoc-pe)				fmt=coff em=epoc-pe ;;
++  arm-*-nuttx*)     fmt=elf em=armeabi ;;
+   arm-wince-pe | arm-*-wince | arm*-*-mingw32ce* | arm*-*-cegcc*)
+ 					fmt=coff em=wince-pe ;;
+   arm-*-pe)				fmt=coff em=pe ;;
+@@ -359,7 +360,7 @@ case ${generic_target} in
+   moxie-*-uclinux)			fmt=elf em=linux ;;
+   moxie-*-moxiebox*)                    fmt=elf endian=little ;;
+   moxie-*-*)				fmt=elf ;;
+-    
++
+   mt-*-elf)				fmt=elf bfd_gas=yes ;;
+ 
+   msp430-*-*)				fmt=elf ;;
+@@ -470,7 +471,7 @@ case ${generic_target} in
+   visium-*-elf)				fmt=elf ;;
+ 
+   xstormy16-*-*)			fmt=elf ;;
+-  
++
+   xgate-*-*)    			fmt=elf ;;
+ 
+   xtensa*-*-*)				fmt=elf ;;
+-- 
+2.14.4
+
