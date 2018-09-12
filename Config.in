@@ -107,12 +107,20 @@ config BR2_cortex_r4f
 	bool "Cortex-R4F"
 	select BR2_GCC_CORTEX
 config BR2_cortex_m3
-	bool "Cortex-M3/M4"
+	bool "Cortex-M3/M4/M7"
 	select BR2_GCC_CORTEX
 config BR2_cortex_m4f
 	bool "Cortex-M4F"
 	select BR2_GCC_CORTEX
 	select BR2_GCC_CORTEX_M4F
+config BR2_cortex_m7f
+	bool "Cortex-M7F Double Precision FPU"
+	select BR2_GCC_CORTEX
+	select BR2_GCC_CORTEX_M7F
+config BR2_cortex_m7f_sp
+	bool "Cortex-M7F Single Precision FPU"
+	select BR2_GCC_CORTEX
+	select BR2_GCC_CORTEX_M7F_SP
 config BR2_cortex_m0
 	bool "Cortex-M0"
 	select BR2_GCC_CORTEX
@@ -134,6 +142,14 @@ config BR2_GCC_CORTEX
 	default n
 
 config BR2_GCC_CORTEX_M4F
+	bool
+	default n
+
+config BR2_GCC_CORTEX_M7F
+	bool
+	default n
+
+config BR2_GCC_CORTEX_M7F_SP
 	bool
 	default n
 
@@ -256,6 +272,7 @@ config BR2_GCC_TARGET_TUNE
 	default cortex-r4	if BR2_cortex_r4 || BR2_cortex_r4f
 	default cortex-m3	if BR2_cortex_m3
 	default cortex-m4	if BR2_cortex_m4f
+	default cortex-m7	if BR2_cortex_m7f
 	default cortex-m0	if BR2_cortex_m0
 	default cortex-m1	if BR2_cortex_m1
 	default strongarm110	if BR2_sa110
@@ -277,7 +294,7 @@ config BR2_GCC_TARGET_ARCH
 	default armv6j		if BR2_arm1136jf_s
 	default armv7-a		if BR2_cortex_a5 || BR2_cortex_a8
 	default armv7-r		if BR2_cortex_r4 || BR2_cortex_r4f
-	default armv7-m		if BR2_cortex_m3 || BR2_cortex_m4f
+	default armv7-m		if BR2_cortex_m3 || BR2_cortex_m4f || BR2_cortex_m7f
 	default armv6-m		if BR2_cortex_m0 || BR2_cortex_m1
 	default iwmmxt		if BR2_iwmmxt
 
