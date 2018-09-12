@@ -133,7 +133,7 @@ $(GCC_BUILD_DIR)/.configured: $(GCC_DIR)/.patched
 	touch $@
 
 $(GCC_BUILD_DIR)/.compiled: $(GCC_BUILD_DIR)/.configured
-	PATH=$(TARGET_PATH) $(MAKE) -C $(GCC_BUILD_DIR) all
+	PATH=$(TARGET_PATH) $(MAKE) -C $(GCC_BUILD_DIR) all | tee ${GCC_BUILD_DIR}/build.log
 	touch $@
 
 $(GCC_BUILD_DIR)/.installed: $(GCC_BUILD_DIR)/.compiled
