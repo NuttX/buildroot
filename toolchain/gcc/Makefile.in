@@ -56,6 +56,17 @@ SOFT_FLOAT_CONFIG_OPTION:=--with-float=hard
 ARCH_FPU_SUFFIX:=_hf
 endif
 
+ifeq ($(strip $(BR2_GCC_CORTEX_M7F)),y)
+TARGET_SOFT_FLOAT:=-mfpu=fpv5-d16 -mfloat-abi=hard -mhard-float
+SOFT_FLOAT_CONFIG_OPTION:=--with-float=hard
+ARCH_FPU_SUFFIX:=_hf
+endif
+
+ifeq ($(strip $(BR2_GCC_CORTEX_M7F_SP)),y)
+TARGET_SOFT_FLOAT:=-mfpu=fpv5-sp-d16 -mfloat-abi=hard -mhard-float
+SOFT_FLOAT_CONFIG_OPTION:=--with-float=hard
+ARCH_FPU_SUFFIX:=_hf
+endif
 
 ifeq ($(strip $(BR2_GCC_CORTEX_R4F)),y)
 TARGET_SOFT_FLOAT:=-mfpu=fpv4-d16 -mfloat-abi=hard -mhard-float
