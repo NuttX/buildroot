@@ -27,8 +27,23 @@ config BR2_QCONF_FRONTEND
 	help
 	  NOTE: You must have the QTK developer library installed on your computer
 
+choice
+	prompt "kconfig version"
+	default BR2_KCONFIG_VERSION_4_11_0_1
+	help
+		Select the version of kconfig you wish to use.
+
+	config BR2_KCONFIG_VERSION_3_12_0_0
+		bool "kconfig 3.12.0.0"
+
+	config BR2_KCONFIG_VERSION_4_11_0_1
+		bool "kconfig 4.11.0.1"
+
+endchoice
+
 config BR2_KCONFIG_FRONTENDS_VERSION
 	string
-	default "3.12.0.0"
+	default "3.12.0.0"   if BR2_KCONFIG_VERSION_3_12_0_0
+	default "4.11.0.1"   if BR2_KCONFIG_VERSION_4_11_0_1
 
 endif # BR2_PACKAGE_KCONFIG_FRONTENDS

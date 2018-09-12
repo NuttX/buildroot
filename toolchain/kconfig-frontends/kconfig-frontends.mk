@@ -35,7 +35,9 @@ $(DL_DIR)/$(KCONFIGS_SOURCE):
 $(KCONFIGS_BUILD)/.unpacked : $(DL_DIR)/$(KCONFIGS_SOURCE)
 	mkdir -p $(TOOL_BUILD_DIR)
 	$(BZCAT) $(DL_DIR)/$(KCONFIGS_SOURCE) | tar -C $(TOOL_BUILD_DIR) $(TAR_OPTIONS) -
-	@#toolchain/patch-kernel.sh $(KCONFIGS_BUILD) toolchain/kconfig-frontends \*.patch
+ifneq ($(wildcard toolchain/kconfig-frontends/$(KCONFIGS_VERSION)),)
+	toolchain/patch-kernel.sh $(KCONFIGS_BUILD) toolchain/kconfig-frontends/$(KCONFIGS_VERSION) \*.patch
+endif
 	touch $@
 
 $(KCONFIGS_BUILD)/.configured : $(KCONFIGS_BUILD)/.unpacked
