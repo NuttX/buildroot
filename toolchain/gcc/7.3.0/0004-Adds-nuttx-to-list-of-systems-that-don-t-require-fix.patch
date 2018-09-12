@@ -1,0 +1,27 @@
+From 3580f5e5d34093bcb06a2add79c05fb98b5a6bb9 Mon Sep 17 00:00:00 2001
+From: Anthony Merlino <anthony@vergeaero.com>
+Date: Sun, 26 Aug 2018 15:16:11 -0400
+Subject: [PATCH 5/5] Adds nuttx to list of systems' that don't require fixing
+ headers. This is our responsibility
+
+---
+ fixincludes/mkfixinc.sh | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/fixincludes/mkfixinc.sh b/fixincludes/mkfixinc.sh
+index 0f9648608e94..a220e6ec720e 100755
+--- a/fixincludes/mkfixinc.sh
++++ b/fixincludes/mkfixinc.sh
+@@ -19,7 +19,8 @@ case $machine in
+     powerpc-*-rtems*   | \
+     powerpcle-*-eabisim* | \
+     powerpcle-*-eabi* | \
+-    *-musl* )
++    *-musl* | \
++    *-nuttx*)
+ 	#  IF there is no include fixing,
+ 	#  THEN create a no-op fixer and exit
+ 	(echo "#! /bin/sh" ; echo "exit 0" ) > ${target}
+-- 
+2.14.4
+

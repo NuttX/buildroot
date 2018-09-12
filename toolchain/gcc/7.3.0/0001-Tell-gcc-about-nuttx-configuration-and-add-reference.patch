@@ -1,0 +1,24 @@
+diff --git a/gcc/config.gcc b/gcc/config.gcc
+index 6e75bd45fb9d..ca867cedd122 100644
+--- a/gcc/config.gcc
++++ b/gcc/config.gcc
+@@ -1133,7 +1133,7 @@ arm*-*-phoenix*)
+ 	tmake_file="${tmake_file} arm/t-arm arm/t-bpabi arm/t-phoenix"
+ 	target_cpu_cname="arm7tdmi"
+ 	;;
+-arm*-*-eabi* | arm*-*-symbianelf* | arm*-*-rtems* | arm*-*-fuchsia*)
++arm*-*-eabi* | arm*-*-symbianelf* | arm*-*-rtems* | arm*-*-fuchsia* | arm*-*-nuttx*)
+ 	case ${target} in
+ 	arm*eb-*-eabi*)
+ 	  tm_defines="${tm_defines} TARGET_BIG_ENDIAN_DEFAULT=1"
+@@ -1143,6 +1143,10 @@ arm*-*-eabi* | arm*-*-symbianelf* | arm*-*-rtems* | arm*-*-fuchsia*)
+ 	tmake_file="${tmake_file} arm/t-arm arm/t-arm-elf"
+ 	target_cpu_cname="arm7tdmi"
+ 	case ${target} in
++	arm*-*-nuttx*-eabi*)
++	  tm_file="${tm_file} nuttx.h"
++	  tmake_file="${tmake_file} arm/t-bpabi"
++	  ;;
+ 	arm*-*-eabi*)
+ 	  tm_file="$tm_file newlib-stdint.h"
+ 	  tmake_file="${tmake_file} arm/t-bpabi"

@@ -1,0 +1,36 @@
+From 8be803003f97a3fa799e75d519f67c3579071158 Mon Sep 17 00:00:00 2001
+From: Anthony Merlino <anthony@vergeaero.com>
+Date: Sun, 26 Aug 2018 04:52:35 -0400
+Subject: [PATCH 6/6] Add logic to create emulation C file for our armelf_nuttx
+ emulation
+
+---
+ ld/Makefile.am | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/ld/Makefile.am b/ld/Makefile.am
+index 15beaa7..2aed230 100644
+--- a/ld/Makefile.am
++++ b/ld/Makefile.am
+@@ -184,6 +184,7 @@ ALL_EMULATION_SOURCES = \
+ 	earmelf_linux_eabi.c \
+ 	earmelf_nacl.c \
+ 	earmelf_nbsd.c \
++	earmelf_nuttx.c \
+ 	earmelf_phoenix.c \
+ 	earmelf_vxworks.c \
+ 	earmelfb.c \
+@@ -790,6 +791,10 @@ earmelf_nbsd.c: $(srcdir)/emulparams/armelf_nbsd.sh \
+   $(ELF_DEPS) $(srcdir)/emultempl/armelf.em \
+   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+ 
++earmelf_nuttx.c: $(srcdir)/emulparams/armelf_nuttx.sh \
++  $(ELF_DEPS) $(srcdir)/emultempl/armelf.em \
++  $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
++
+ earmelf_phoenix.c: $(srcdir)/emulparams/armelf_phoenix.sh \
+   $(ELF_DEPS) $(srcdir)/emultempl/armelf.em \
+   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+-- 
+2.14.4
+

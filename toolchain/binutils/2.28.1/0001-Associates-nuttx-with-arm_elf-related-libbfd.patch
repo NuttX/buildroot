@@ -1,0 +1,25 @@
+From 76d6a34d2122e02f9ad7be22b3a0b6f2aada5caa Mon Sep 17 00:00:00 2001
+From: Anthony Merlino <anthony@vergeaero.com>
+Date: Sun, 26 Aug 2018 04:45:45 -0400
+Subject: [PATCH 2/6] Associates nuttx with arm_elf related libbfd
+
+---
+ bfd/config.bfd | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/bfd/config.bfd b/bfd/config.bfd
+index c031216..29b1c08 100644
+--- a/bfd/config.bfd
++++ b/bfd/config.bfd
+@@ -448,7 +448,7 @@ case "${targ}" in
+     targ_selvecs=arm_elf32_be_vec
+     ;;
+   arm-*-elf | arm*-*-freebsd* | arm*-*-linux-* | arm*-*-conix* | \
+-  arm*-*-uclinux* | arm-*-kfreebsd*-gnu | \
++  arm*-*-uclinux* | arm-*-kfreebsd*-gnu | arm*-*-nuttx* | \
+   arm*-*-eabi* )
+     targ_defvec=arm_elf32_le_vec
+     targ_selvecs=arm_elf32_be_vec
+--
+2.14.4
+

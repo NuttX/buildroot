@@ -33,6 +33,21 @@ $(BINUTILS_DIR)/.unpacked: $(DL_DIR)/$(BINUTILS_SOURCE)
 $(BINUTILS_DIR)/.patched: $(BINUTILS_DIR)/.unpacked
 	# Apply appropriate binutils patches.
 	toolchain/patch-kernel.sh $(BINUTILS_DIR) toolchain/binutils/$(BINUTILS_VERSION) \*.patch
+
+	# NuttX buildroot uses packages/gnuconfig to copy in a common config.sub/config.guess
+	# to all toolchain components. However, the behavior of these scripts must
+	# change with the addition of NuttX OS support in GCC/binutils. If gcc/binutils
+	# are being patched to handle 'nuttx-eabi' as kernel/os portion of triplet,
+	# then config.sub most also be patched so that the triplet (ex. arm-nuttx-eabi)
+	# is interpreted as arm-unknown-nuttx-eabi. This means the vendor is 'unknown'
+	# and the system is 'nuttx-eabi'.  Without this patch, config.sub outputs a
+	# canonical triplet 'arm-nuttx-eabi'. In this case the vendor is 'nuttx' and
+	# the kernel/os is 'eabi'
+
+ifeq (${BR2_BINUTILS_SUPPORTS_NUTTX_OS},y)
+	toolchain/patch-kernel.sh $(BINUTILS_DIR) package/gnuconfig 0001-add-nuttx-os.patch
+endif
+
 	touch $@
 
 $(BINUTILS_DIR1)/.configured: $(BINUTILS_DIR)/.patched
