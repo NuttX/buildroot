@@ -198,7 +198,7 @@ $(GDB_HOST_DIR)/gdb/gdb: $(GDB_HOST_DIR)/.configured
 	strip $(GDB_HOST_DIR)/gdb/gdb
 
 $(TARGET_CROSS)gdb: $(GDB_HOST_DIR)/gdb/gdb
-	install -c $(GDB_HOST_DIR)/gdb/gdb $(TARGET_CROSS)gdb
+	$(MAKE) -C $(GDB_HOST_DIR) install
 	ln -snf ../../bin/$(REAL_GNU_TARGET_NAME)-gdb \
 		$(STAGING_DIR)/$(REAL_GNU_TARGET_NAME)/bin/gdb
 	ln -snf $(REAL_GNU_TARGET_NAME)-gdb \
