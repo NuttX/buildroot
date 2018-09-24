@@ -189,6 +189,7 @@ $(GDB_HOST_DIR)/.configured: $(GDB_DIR)/.unpacked
 		$(GDB_CONF_HOST_TUI) --disable-gdbtk --without-x \
 		--without-included-gettext \
 		--enable-threads \
+		--with-expat \
 	);
 	touch  $(GDB_HOST_DIR)/.configured
 
