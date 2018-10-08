@@ -45,37 +45,44 @@ choice
 	config BR2_GCC_VERSION_4_6_3
 		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
 		select BR2_GCC_SUPPORTS_SYSROOT
+		select BR2_GCC_SUPPORTS_DOWN_PREREQ
 		bool "gcc 4.6.3"
 
 	config BR2_GCC_VERSION_4_7_4
 		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
 		select BR2_GCC_SUPPORTS_SYSROOT
+		select BR2_GCC_SUPPORTS_DOWN_PREREQ
 		bool "gcc 4.7.4"
 
 	config BR2_GCC_VERSION_4_8_5
 		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
 		select BR2_GCC_SUPPORTS_SYSROOT
+		select BR2_GCC_SUPPORTS_DOWN_PREREQ
 		bool "gcc 4.8.5"
 
 	config BR2_GCC_VERSION_4_9_4
 		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
 		select BR2_GCC_SUPPORTS_SYSROOT
+		select BR2_GCC_SUPPORTS_DOWN_PREREQ
 		bool "gcc 4.9.4"
 
 	config BR2_GCC_VERSION_5_5_0
 		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
 		select BR2_GCC_SUPPORTS_SYSROOT
+		select BR2_GCC_SUPPORTS_DOWN_PREREQ
 		bool "gcc 5.5.0"
 
 	config BR2_GCC_VERSION_6_4_0
 		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
 		select BR2_GCC_SUPPORTS_SYSROOT
+		select BR2_GCC_SUPPORTS_DOWN_PREREQ
 		bool "gcc 6.4.0"
 
 	config BR2_GCC_VERSION_7_3_0
 		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
 		select BR2_GCC_SUPPORTS_SYSROOT
 		select BR2_GCC_SUPPORTS_NUTTX_OS
+		select BR2_GCC_SUPPORTS_DOWN_PREREQ
 		bool "gcc 7.3.0"
 
 endchoice
@@ -87,6 +94,19 @@ config BR2_GCC_SUPPORTS_SYSROOT
 config BR2_GCC_SUPPORTS_NUTTX_OS
 	bool
 	default n
+
+config BR2_GCC_SUPPORTS_DOWN_PREREQ
+	bool
+	default n
+
+config BR2_GCC_DOWNLOAD_PREREQUISITES
+	bool "Download and build support libraries into gcc"
+	depends BR2_GCC_SUPPORTS_DOWN_PREREQ
+	default y
+	---help---
+		Download and build gmp, mpfr, mpc, etc. into GCC as static libraries
+		so that the toolchain is more portable and doesn't rely on system
+		shared libraries.
 
 config BR2_GCC_VERSION
 	string
