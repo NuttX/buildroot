@@ -120,6 +120,7 @@ endif
 	touch $@
 
 $(GCC_BUILD_DIR)/.configured: $(GCC_DIR)/.patched
+	(cd $(GCC_DIR); contrib/download_prerequisites)
 	mkdir -p $(GCC_BUILD_DIR)
 	# Important!  Required for limits.h to be fixed.
 	ln -snf ../include/ $(STAGING_DIR)/$(REAL_GNU_TARGET_NAME)/sys-include
