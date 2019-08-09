@@ -128,6 +128,8 @@ endif
 	ln -snf ../include/ $(STAGING_DIR)/$(REAL_GNU_TARGET_NAME)/sys-include
 	(cd $(GCC_BUILD_DIR); rm -rf config.cache; PATH=$(TARGET_PATH) \
 		CC="$(HOSTCC)" \
+		CFLAGS="$(TARGET_OPTIMIZATION)" \
+		CXXFLAGS="$(TARGET_OPTIMIZATION)" \
 		$(GCC_DIR)/configure \
 		--prefix=$(STAGING_DIR) \
 		--build=$(GNU_HOST_NAME) \
@@ -142,7 +144,7 @@ endif
 		$(DISABLE_NLS) \
 		$(THREADS) \
 		$(MULTILIB) \
-		$(SOFT_FLOAT_CONFIG_OPTION) \
+		$(FLOAT_CONFIG_OPTION) \
 		$(GCC_WITH_ABI) $(GCC_WITH_ARCH) $(GCC_WITH_TUNE) $(GCC_WITH_MODE) \
 		$(GCC_USE_SJLJ_EXCEPTIONS) \
 		$(DISABLE_LARGEFILE) \

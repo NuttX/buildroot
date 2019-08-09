@@ -78,12 +78,12 @@ choice
 		select BR2_GCC_SUPPORTS_DOWN_PREREQ
 		bool "gcc 6.4.0"
 
-	config BR2_GCC_VERSION_7_3_0
+	config BR2_GCC_VERSION_7_4_0
 		depends on !BR2_avr32 && !BR2_nios2 && !BR2_m9s12x
 		select BR2_GCC_SUPPORTS_SYSROOT
 		select BR2_GCC_SUPPORTS_NUTTX_OS
 		select BR2_GCC_SUPPORTS_DOWN_PREREQ
-		bool "gcc 7.3.0"
+		bool "gcc 7.4.0"
 
 endchoice
 
@@ -121,7 +121,7 @@ config BR2_GCC_VERSION
 	default "4.9.4"     if BR2_GCC_VERSION_4_9_4
 	default "5.5.0"     if BR2_GCC_VERSION_5_5_0
 	default "6.4.0"     if BR2_GCC_VERSION_6_4_0
-	default "7.3.0"     if BR2_GCC_VERSION_7_3_0
+	default "7.4.0"     if BR2_GCC_VERSION_7_4_0
 
 config BR2_GCC_USE_SJLJ_EXCEPTIONS
 	bool "Enable setjmp/longjmp exceptions?"

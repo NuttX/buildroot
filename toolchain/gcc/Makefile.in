@@ -12,65 +12,58 @@ ifeq ($(BR2_SOFT_FLOAT),y)
 # gcc 3.4.x soft float configuration is different than previous versions.
 ifeq ($(findstring x3.4.,x$(GCC_VERSION)),x3.4.)
 ifneq ($(BR2_nios2),y)
-SOFT_FLOAT_CONFIG_OPTION:=--with-float=soft
+FLOAT_CONFIG_OPTION:=--with-float=soft
 endif
 else
-SOFT_FLOAT_CONFIG_OPTION:=--with-float=soft
+FLOAT_CONFIG_OPTION:=--with-float=soft
 endif
 
 # again... there must be a better way
 
+###
+###	GCC version-specific stuff...
+###
 ifeq ($(findstring x4.,x$(GCC_VERSION)),x4.)
-
-SOFT_FLOAT_CONFIG_OPTION:=--with-float=soft
-
-ifeq ($(BR2_SOFT_FLOAT_FP),y)
-TARGET_SOFT_FLOAT:=-mfloat-abi=softfp
-else # no fp at all
-ifeq ($(BR2_arm),y) # only set float-abi for arm
-TARGET_SOFT_FLOAT:=-mfloat-abi=soft
-else ifeq ($(BR2_armeb),y) # only set float-abi for arm
-TARGET_SOFT_FLOAT:=-mfloat-abi=soft
-else
-TARGET_SOFT_FLOAT:=-msoft-float
-endif
-endif
-
+FLOAT_CONFIG_OPTION:=--with-float=soft
 else # not gcc-4.x
-
 TARGET_SOFT_FLOAT:=-msoft-float
 endif
 ARCH_FPU_SUFFIX:=_nofpu
 else # no softfloat support
-SOFT_FLOAT_CONFIG_OPTION:=
+FLOAT_CONFIG_OPTION:=
 TARGET_SOFT_FLOAT:=
 ARCH_FPU_SUFFIX:=
 
 endif
 
+
+
+###
+###	Processof-specific stuff...
+###
 # DSA: config gcc to build Cortex-M4 compiler with hard float
 
-ifeq ($(strip $(BR2_GCC_CORTEX_M4F)),y)
-TARGET_SOFT_FLOAT:=-mfpu=fpv4-sp-d16 -mfloat-abi=hard -mhard-float
-SOFT_FLOAT_CONFIG_OPTION:=--with-float=hard
+ifeq ($(strip $(BR2_GCC_CORTEX_M4F_SP)),y)
+# TARGET_HARD_FLOAT:=-mfloat-abi=hard -mfpu=fpv4-sp-d16 -mhard-float
+FLOAT_CONFIG_OPTION:=--with-float=hard --with-fpu=fpv4-sp-d16
 ARCH_FPU_SUFFIX:=_hf
 endif
 
 ifeq ($(strip $(BR2_GCC_CORTEX_M7F)),y)
-TARGET_SOFT_FLOAT:=-mfpu=fpv5-d16 -mfloat-abi=hard -mhard-float
-SOFT_FLOAT_CONFIG_OPTION:=--with-float=hard
+# TARGET_HARD_FLOAT:=-mfloat-abi=hard -mfpu=fpv5-d16 -mhard-float
+FLOAT_CONFIG_OPTION:=--with-float=hard --with-fpu=fpv5-d16
 ARCH_FPU_SUFFIX:=_hf
 endif
 
 ifeq ($(strip $(BR2_GCC_CORTEX_M7F_SP)),y)
-TARGET_SOFT_FLOAT:=-mfpu=fpv5-sp-d16 -mfloat-abi=hard -mhard-float
-SOFT_FLOAT_CONFIG_OPTION:=--with-float=hard
+# TARGET_HARD_FLOAT:=-mfloat-abi=hard -mfpu=fpv5-sp-d16 -mhard-float
+FLOAT_CONFIG_OPTION:=--with-float=hard --with-fpu=fpv5-sp-d16
 ARCH_FPU_SUFFIX:=_hf
 endif
 
 ifeq ($(strip $(BR2_GCC_CORTEX_R4F)),y)
-TARGET_SOFT_FLOAT:=-mfpu=fpv4-d16 -mfloat-abi=hard -mhard-float
-SOFT_FLOAT_CONFIG_OPTION:=--with-float=hard
+# TARGET_HARD_FLOAT:=-mfloat-abi=hard -mfpu=fpv4-d16 -mhard-float
+FLOAT_CONFIG_OPTION:=--with-float=hard --with-fpu=vfpv3-d16
 ARCH_FPU_SUFFIX:=_hf
 endif
 

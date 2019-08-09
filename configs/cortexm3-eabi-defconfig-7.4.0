@@ -39,10 +39,8 @@ BR2_arm=y
 # BR2_cortex_a8 is not set
 # BR2_cortex_r4 is not set
 # BR2_cortex_r4f is not set
-# BR2_cortex_m3 is not set
+BR2_cortex_m3=y
 # BR2_cortex_m4f is not set
-BR2_cortex_m7f=y
-# BR2_cortex_m7f_sp is not set
 # BR2_cortex_m0 is not set
 # BR2_cortex_m1 is not set
 # BR2_sa110 is not set
@@ -51,12 +49,10 @@ BR2_cortex_m7f=y
 # BR2_iwmmxt is not set
 BR2_GCC_CORTEX=y
 # BR2_GCC_CORTEX_M4F is not set
-BR2_GCC_CORTEX_M7F=y
-# BR2_GCC_CORTEX_M7F_SP is not set
 # BR2_ARM_OABI is not set
 BR2_ARM_EABI=y
 BR2_ARCH="arm"
-BR2_GCC_TARGET_TUNE="cortex-m7"
+BR2_GCC_TARGET_TUNE="cortex-m3"
 BR2_GCC_TARGET_ARCH="armv7-m"
 BR2_GCC_TARGET_ABI="aapcs-linux"
 
@@ -113,10 +109,10 @@ BR2_PACKAGE_GCC=y
 # BR2_GCC_VERSION_4_9_4 is not set
 # BR2_GCC_VERSION_5_5_0 is not set
 # BR2_GCC_VERSION_6_4_0 is not set
-BR2_GCC_VERSION_7_3_0=y
+BR2_GCC_VERSION_7_4_0=y
 BR2_GCC_SUPPORTS_SYSROOT=y
 BR2_GCC_SUPPORTS_NUTTX_OS=y
-BR2_GCC_VERSION="7.3.0"
+BR2_GCC_VERSION="7.4.0"
 # BR2_GCC_USE_SJLJ_EXCEPTIONS is not set
 BR2_EXTRA_GCC_CONFIG_OPTIONS=""
 BR2_INSTALL_LIBSTDCPP=y
