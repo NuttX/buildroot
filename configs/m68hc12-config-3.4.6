@@ -10,10 +10,12 @@ BR2_HAVE_DOT_CONFIG=y
 # BR2_bfin is not set
 # BR2_cris is not set
 # BR2_i386 is not set
+# BR2_lm32 is not set
 # BR2_m32c is not set
 # BR2_m68k is not set
 # BR2_m68hc11 is not set
 BR2_m68hc12=y
+# BR2_m9s12x is not set
 # BR2_mips is not set
 # BR2_mipsel is not set
 # BR2_nios2 is not set
@@ -23,6 +25,10 @@ BR2_m68hc12=y
 # BR2_h8300 is not set
 # BR2_sparc is not set
 # BR2_x86_64 is not set
+# BR2_GCC_CORTEX is not set
+# BR2_GCC_CORTEX_M4F_SP is not set
+# BR2_GCC_CORTEX_M7F is not set
+# BR2_GCC_CORTEX_M7F_SP is not set
 BR2_ARCH="m68hc12"
 
 #
@@ -51,8 +57,15 @@ BR2_GNU_TARGET_SUFFIX="nuttx-elf"
 #
 BR2_PACKAGE_BINUTILS=y
 BR2_BINUTILS_VERSION_2_17=y
+# BR2_BINUTILS_VERSION_2_18 is not set
 # BR2_BINUTILS_VERSION_2_19 is not set
 # BR2_BINUTILS_VERSION_2_19_1 is not set
+# BR2_BINUTILS_VERSION_2_21_1 is not set
+# BR2_BINUTILS_VERSION_2_22 is not set
+# BR2_BINUTILS_VERSION_2_24 is not set
+# BR2_BINUTILS_VERSION_2_26_1 is not set
+# BR2_BINUTILS_VERSION_2_28_1 is not set
+# BR2_BINUTILS_SUPPORTS_NUTTX_OS is not set
 BR2_BINUTILS_VERSION="2.17"
 BR2_EXTRA_BINUTILS_CONFIG_OPTIONS=""
 
@@ -60,10 +73,21 @@ BR2_EXTRA_BINUTILS_CONFIG_OPTIONS=""
 # GCC Options
 #
 BR2_PACKAGE_GCC=y
+# BR2_GCC_VERSION_3_3_6 is not set
 BR2_GCC_VERSION_3_4_6=y
 # BR2_GCC_VERSION_4_2_4 is not set
 # BR2_GCC_VERSION_4_3_3 is not set
+# BR2_GCC_VERSION_4_5_2 is not set
+# BR2_GCC_VERSION_4_6_3 is not set
+# BR2_GCC_VERSION_4_7_4 is not set
+# BR2_GCC_VERSION_4_8_5 is not set
+# BR2_GCC_VERSION_4_9_4 is not set
+# BR2_GCC_VERSION_5_5_0 is not set
+# BR2_GCC_VERSION_6_4_0 is not set
+# BR2_GCC_VERSION_7_4_0 is not set
 # BR2_GCC_SUPPORTS_SYSROOT is not set
+# BR2_GCC_SUPPORTS_NUTTX_OS is not set
+# BR2_GCC_SUPPORTS_DOWN_PREREQ is not set
 BR2_GCC_VERSION="3.4.6"
 # BR2_GCC_USE_SJLJ_EXCEPTIONS is not set
 BR2_EXTRA_GCC_CONFIG_OPTIONS=""
@@ -82,6 +106,13 @@ BR2_EXTRA_GCC_CONFIG_OPTIONS=""
 # NuttX Binary Support
 #
 # BR2_PACKAGE_GENROMFS is not set
+BR2_PACKAGE_KCONFIG_FRONTENDS=y
+# BR2_NCONF_FRONTEND is not set
+# BR2_GCONF_FRONTEND is not set
+# BR2_QCONF_FRONTEND is not set
+# BR2_KCONFIG_VERSION_3_12_0_0 is not set
+BR2_KCONFIG_VERSION_4_11_0_1=y
+BR2_KCONFIG_FRONTENDS_VERSION="4.11.0.1"
 
 #
 # Common Toolchain Options
