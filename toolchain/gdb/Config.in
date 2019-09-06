@@ -60,7 +60,6 @@ endchoice
 
 config BR2_PACKAGE_GDB_TUI
     bool "TUI support"
-    select BR2_PACKAGE_NCURSES
 	default n
     depends on BR2_PACKAGE_GDB_HOST
     help
