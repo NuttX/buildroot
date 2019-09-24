@@ -7,7 +7,8 @@
 KCONFIGS_VERSION:=$(strip $(subst ",, $(BR2_KCONFIG_FRONTENDS_VERSION)))
 KCONFIGS_SOURCE:=kconfig-frontends-$(KCONFIGS_VERSION).tar.bz2
 KCONFIGS_BUILD:=$(TOOL_BUILD_DIR)/kconfig-frontends-$(KCONFIGS_VERSION)
-KCONFIGS_SITE:=http://ymorin.is-a-geek.org/download/kconfig-frontends
+#KCONFIGS_SITE:=http://ymorin.is-a-geek.org/download/kconfig-frontends
+KCONFIGS_SITE:=https://bitbucket.org/nuttx/tools/downloads
 KCONFIGS_CAT:=$(BZCAT)
 
 ifeq ($(strip $(BR2_NCONF_FRONTEND)),y)
