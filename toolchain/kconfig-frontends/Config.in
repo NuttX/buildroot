@@ -3,6 +3,9 @@ config BR2_PACKAGE_KCONFIG_FRONTENDS
 	default y
 	help
 	  The kconfig-frontends are required to configure NuttX.  See
+	  https://bitbucket.org/nuttx/tools/src/master/kconfig-frontends
+
+	  This is a snapshot of Yann Morin's kconfig-frontends package from
 	  http://ymorin.is-a-geek.org/projects/kconfig-frontends
 
 	  NOTE: You must have the ncurses library installed on your computer
